@@ -41,3 +41,9 @@ Python, popular OO language used in client and cloud side apps.
 1. `if elif else`
 2. python does not have switch case block. Keeps it simple with elif
 3. Ternary equivalent: `st = "x is lt y" if(x<y) else "x is gt or eq y"`
+
+### 2.5 Loops
+1. `while` and `for`. simple no other loops `while(x < 5):` and `for y in range(5, 10)`, `for d in days:`
+2. `break` is used to stop the current and all next iterations and exit out the loop
+3. `continue` is used to only stop the current iteration and continue loop for next one
+4. `for` loop in python does not use an index var like JS. To get index we can use `enumerate()` fn
