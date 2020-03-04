@@ -30,3 +30,9 @@ Python, popular OO language used in client and cloud side apps.
 3. Function has a local scope for variable
 4. `global name` creates a global variable
 5. `del name` deletes a previously created variable
+
+### 2.3 Functions
+1. `def func1():` colon is the start of scope block in Python unline braces.
+2. `print(power(x=3, num = 2))` python supports name and value declaration. Thus order can be ignored
+3. `def multi_add(*args): # multiple args can be sent as *args`
+4. Variable args can be combined with a set of formal args but var args in that case should always come at end `def multi_add_offset(num1, num2, *extranums):`
