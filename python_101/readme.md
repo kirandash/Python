@@ -36,3 +36,8 @@ Python, popular OO language used in client and cloud side apps.
 2. `print(power(x=3, num = 2))` python supports name and value declaration. Thus order can be ignored
 3. `def multi_add(*args): # multiple args can be sent as *args`
 4. Variable args can be combined with a set of formal args but var args in that case should always come at end `def multi_add_offset(num1, num2, *extranums):`
+
+### 2.4 Conditional structures
+1. `if elif else`
+2. python does not have switch case block. Keeps it simple with elif
+3. Ternary equivalent: `st = "x is lt y" if(x<y) else "x is gt or eq y"`
