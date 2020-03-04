@@ -47,3 +47,11 @@ Python, popular OO language used in client and cloud side apps.
 2. `break` is used to stop the current and all next iterations and exit out the loop
 3. `continue` is used to only stop the current iteration and continue loop for next one
 4. `for` loop in python does not use an index var like JS. To get index we can use `enumerate()` fn
+
+### 2.6 Classes
+Classes helps in procedural or OO programming
+1. Helps building modules that can be passed to even other projects
+2. `class myClass():`
+3. `def method1(self):` self refers to the object itself (equivalent of this in js)
+4. all fns in class has first arg as self
+5. Inheritance: `class anotherClass(myClass): def method1(self): myClass.method1(self)`
