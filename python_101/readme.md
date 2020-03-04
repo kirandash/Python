@@ -23,3 +23,10 @@ Python, popular OO language used in client and cloud side apps.
 4. exit()
 5. Python uses `:` to understand that scope block has started and indentation is used to know if a block of code belongs to a function.
 6. Run VS debugger icon to execute the active py file.
+
+### 2.2 Variables and Expressions, global, del
+1. Install a Python code formatter eg autopep8. After writing code, press option + Shift + F
+2. Python is a strongly typed language. And does not allow mixing types of vars
+3. Function has a local scope for variable
+4. `global name` creates a global variable
+5. `del name` deletes a previously created variable
