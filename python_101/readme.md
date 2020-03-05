@@ -55,3 +55,7 @@ Classes helps in procedural or OO programming
 3. `def method1(self):` self refers to the object itself (equivalent of this in js)
 4. all fns in class has first arg as self
 5. Inheritance: `class anotherClass(myClass): def method1(self): myClass.method1(self)`
+
+## 3. Date and Time
+### 3.1 date, time and datetime classes
+datetime library
