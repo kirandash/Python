@@ -70,3 +70,12 @@ strftime
 ### 3.4 Calendars
 1. Python provides libraries to work with calendars in text and html format
 2. TextCalendar
+
+## 4. Working with Files
+### 4.1 Reading and writing Files, appending data, closing file
+1. No imports reqd
+2. `open("textfile.text", "w+")`
+3. a for append mode
+4. `f.close` to close file
+5. `f.write`
+6. `f.read` and `f.readlines` to read entire file content or line by line in array
