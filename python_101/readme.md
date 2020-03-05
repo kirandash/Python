@@ -66,3 +66,7 @@ strftime
 ### 3.3 Using timedeltas objects
 1. Helps us to to mathematical operation on date and time
 2. Timedelta is a time span. and not a specific date/time
+
+### 3.4 Calendars
+1. Python provides libraries to work with calendars in text and html format
+2. TextCalendar
