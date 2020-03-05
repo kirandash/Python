@@ -59,3 +59,6 @@ Classes helps in procedural or OO programming
 ## 3. Date and Time
 ### 3.1 date, time and datetime classes
 datetime library
+
+### 3.2 Formatting Date and Time outputs
+strftime
