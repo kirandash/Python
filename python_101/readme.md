@@ -108,3 +108,8 @@ strftime
 2. `import json`
 3. `json.loads(data)`
 4. `print(theJSON["metadata"]["title"])`
+
+### 5.3 Parsing and Processing HTML
+1. `from html.parser import HTMLParser`
+2. `parser = MyHTMLParser()`, a subclass MyHTMLParser is created to overwrite default parser fns
+3. `parser.feed(htmlcontent)`
