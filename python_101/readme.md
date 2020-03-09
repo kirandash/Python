@@ -93,3 +93,12 @@ strftime
 4. rename: `os.rename("python_101/04/rename.txt", "python_101/04/textfile_renamed.txt")`
 5. zip: `shutil.make_archive("archive", "zip", root_dir)`: This includes all the files from root dir
 6. To control, which file to add in zip, use the `ZipFile` module. `with ZipFile("testzip.zip", "w") as newzip:`
+
+### 4.4 Quiz
+1. Get os name for python and cwd: `import os print(os.name) print(os.getcwd())`
+2. Read a file content and print it to console: 
+    `with open('breeders_for_cats.txt', 'r') as reader: print(reader.read())`
+
+## 5. Working with web data
+### 5.1 Fetching internet data
+1. `import urllib.request`
