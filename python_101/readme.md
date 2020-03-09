@@ -85,3 +85,11 @@ strftime
 2. `path.exists("textfile.txt")`, `path.isfile()`, `path.isdir()`
 3. Item path: `path.realpath("abc.txt")`. Item path and name: `path.split(path.realpath("abc.txt"))`
 4. Get modification time: `path.getmtime("abc.txt")`
+
+### 4.3 File system shell methods
+1. `import shutil`
+2. copy file content: `shutil.copy(src, dst)` : copies only file content and not meta info eg modification time etc
+3. copy with meta: `shutil.copystat(src, dst)`
+4. rename: `os.rename("python_101/04/rename.txt", "python_101/04/textfile_renamed.txt")`
+5. zip: `shutil.make_archive("archive", "zip", root_dir)`: This includes all the files from root dir
+6. To control, which file to add in zip, use the `ZipFile` module. `with ZipFile("testzip.zip", "w") as newzip:`
