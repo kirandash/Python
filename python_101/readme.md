@@ -102,3 +102,9 @@ strftime
 ## 5. Working with web data
 ### 5.1 Fetching internet data
 1. `import urllib.request`
+
+### 5.2 Working with JSON
+1. JSON feed from: https://earthquake.usgs.gov/earthquakes/feed/, ---> GeoJSON summary Feed ---> All Earthquakes ---> https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson
+2. `import json`
+3. `json.loads(data)`
+4. `print(theJSON["metadata"]["title"])`
