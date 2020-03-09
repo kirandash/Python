@@ -79,3 +79,9 @@ strftime
 4. `f.close` to close file
 5. `f.write`
 6. `f.read` and `f.readlines` to read entire file content or line by line in array
+
+### 4.2 Working with OS path utilities
+1. `import os from os import path`
+2. `path.exists("textfile.txt")`, `path.isfile()`, `path.isdir()`
+3. Item path: `path.realpath("abc.txt")`. Item path and name: `path.split(path.realpath("abc.txt"))`
+4. Get modification time: `path.getmtime("abc.txt")`
