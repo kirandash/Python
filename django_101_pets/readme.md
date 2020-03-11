@@ -55,3 +55,26 @@ App Folder Structure:
 5. views.py: Control layer
 6. tests.py: Tests the app
 7. migrations/: Holds the migration files (for db migrating)
+
+## 2. Django Models and the Admin
+### 2.1 Models, routing, view and template
+1. Django uses MVC architecture. Or MRVT. (adoptions/models.py, django_101/urls.py, adoptions/views.py, adoptions/templates/)
+
+### 2.2 Models
+1. A Model helps us: Create the data layer of the app, Define DB structure, To query db.
+2. models.py file: This contains the set of models for the django app.
+3. Model: A model is a class inheriting from django.db.models.Model, and is used to define fields as class attributes.
+
+### 2.3 Fields
+1. Numeric data: IntegerField, DecimalField
+2. Textual data: CharField, TextField, EmailField, URLField
+3. Miscellaneous data: BooleanField, DateTimeField
+4. Relational data: ForeignKey, ManyToMany
+Ex: `models.CharField(max_length=10, null=True, blank=True)`
+Field attributes: max_length, null, blank, default, choices
+Doc: https://docs.djangoproject.com/en/3.0/ref/models/fields/
+
+### 2.4 Implement models and fields
+1. `from django.db import models`
+2. `class Pet(models.Model):`
+3. `vaccinations = models.ManyToManyField('Vaccine', blank=True)`
