@@ -35,6 +35,23 @@ Will Edit:
 1. settings.py: to configure django, urls.py: routes requests based on URL
 
 Start Project:
-1. `cd django_101_pets`
-2. `python3 manage.py runserver` to run the project on local server. Ignore the warning about unapplied migrations.
+1. `cd django_101_pets`: folder with manage.py file. Since manage.py has all commands.
+2. `python3 manage.py runserver` to run the project on local server. Ignore the warning about unapplied migrations. Note that this will also create a db.sqlite3 file, a local db file that django will use for running server.
 3. Project will launch at http://127.0.0.1:8000/
+
+### 1.4 Create a Django App
+1. An App is a folder with python files
+2. Within django, an app is a component
+3. Each app fits a specific purpose. Eg: Blog / Forum / Wiki
+4. `cd django_101_pets`: folder with manage.py file. Since manage.py has all commands.
+5. `python3 manage.py startapp adoptions`: will create a django app
+6. Add the created app to project. Go to django_101/settings.py file ---> INSTALLED_APPS ---> Add `adoptions` to the end of preinstalled django apps. 
+
+App Folder Structure:
+1. apps.py: Configuration & Initialization
+2. models.py: Data layer
+3. admin.py: Administrative interface
+4. urls.py: URL routing
+5. views.py: Control layer
+6. tests.py: Tests the app
+7. migrations/: Holds the migration files (for db migrating)
