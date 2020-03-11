@@ -113,3 +113,9 @@ strftime
 1. `from html.parser import HTMLParser`
 2. `parser = MyHTMLParser()`, a subclass MyHTMLParser is created to overwrite default parser fns
 3. `parser.feed(htmlcontent)`
+
+### 5.4 Manipulating XML
+1. While manipulating XML/HTML, we do not want to parse the file line by line. But rather have the entire content in memory viz DOM for easier modification.
+2. `doc = xml.dom.minidom.parse("python_101/05/samplexml.xml")`
+3. `doc.nodeName`
+4. `doc.firstChild.tagName`

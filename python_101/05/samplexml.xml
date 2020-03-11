@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<person>
+    <firstname>Kiran</firstname>
+    <lastname>Dash</lastname>
+    <home>Singapore</home>
+    <skill name="React" />
+    <skill name="React Native" />
+    <skill name="Angular"/>
+    <skill name="JavaScript" />
+</person>
