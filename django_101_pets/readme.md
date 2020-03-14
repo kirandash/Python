@@ -114,3 +114,9 @@ Running migrations on our project:
 4. Go to sqlitebrowser tool. Select adoptions_pet table and click on browse data to see the imported data
 5. All these data is stored in db.sqlite3 file. So in case anytime there is an import error, we can always ask for db.sqlite3 file from a team member.
 
+### 2.7 Django Admin
+1. open adoptions/admin.py file. create a PetAdmin class
+2. Create a superuser to work with db: `python3 manage.py createsuperuser`
+3. Run server: `python3 manage.py runserver`
+4. Server is available at: http://127.0.0.1:8000/admin/
+5. By default the server won't be showing list details of pets properly. We can control that with **list_display** attribute for model.ModelAdmin and by configuring models.py __str__ fn for many to many model.
