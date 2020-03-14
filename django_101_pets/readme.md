@@ -176,3 +176,7 @@ URL Patterns example: For project
 2. Next add static files to base.html file
 3. `{% load static %}`
 4. `{% static 'style.css' %}`: basepath/static/filename
+
+## 5 Prod Release Notes
+1. Debug: set to false
+2. DB: PostgreSQL, MySQL etc. SQLite is mostly intended for dev work.
