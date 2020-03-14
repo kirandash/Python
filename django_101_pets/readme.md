@@ -170,3 +170,9 @@ URL Patterns example: For project
 1. Filter: `{{ pet.submission_date|date:"M d Y" }}`
 
 ### 4.3 Structure Templates
+
+### 4.4 Add CSS and JS
+1. define static directories to be used in settings.py file.
+2. Next add static files to base.html file
+3. `{% load static %}`
+4. `{% static 'style.css' %}`: basepath/static/filename
