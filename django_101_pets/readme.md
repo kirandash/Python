@@ -135,3 +135,24 @@ Running migrations on our project:
 11. `pet = Pet.objects.get(age=1)` exception: multiple results (our code must take care of this exception)
 12. `pet = Pet.objects.get(id=5555)` exception: does not exist (our code must take care of this exception)
 13. For many to many: `pet = Pet.objects.get(id=7)` and `pet.vaccinations.all()`: will return QuerySet of all the vaccinations
+
+## 3. Learning Django
+### 3.1 Understand URL patterns
+Definition
+1. URL patterns dispatch request to views based on the path.
+2. It uses regexp to interpret the urls for our site.
+3. ducky: will match text ducky eg: rubber ducky, 
+4. \d : d for digits: in this case 1 digit, 
+5. \d+: d+ means one or more digit characters until anything other than digit eg: 12 ounces, it will match 12
+6. ^admin/ : admin/inventory/item, : will match any characters that starts with admin/ but won't match the word admin/ itself
+7. suffix$ : $ sign means end of sequence. so anything ending with suffix will be matched Eg: anything-suffix
+8. Test your regexp at: https://pythex.org/
+
+URL Patterns example: For project
+1. url(regexp, view, name='index') eg: `url(r'^$', views.home, name='index')`: '^$' means empty string: no path. The 'r' tells python that the url string is a raw string. A raw string does not use \ as escape character.
+2. once regexp matches 'views.home' will be loaded
+3. name is used in templates
+4. urlpatterns are evaluated from top to bottom until a match is found.
+
+### 3.2 Implement URL patterns
+1. `url(r'^adoptions/(\d+)/', views.pet_detail, name='pet_detail')`
