@@ -120,3 +120,18 @@ Running migrations on our project:
 3. Run server: `python3 manage.py runserver`
 4. Server is available at: http://127.0.0.1:8000/admin/
 5. By default the server won't be showing list details of pets properly. We can control that with **list_display** attribute for model.ModelAdmin and by configuring models.py __str__ fn for many to many model.
+
+### 2.8 Query data with the Django ORM
+1. `python3 manage.py shell`: interactive python shell with django initialized
+2. Press **ctrl + L** to clear screen in shell
+3. `from adoptions.models import Pet`
+4. `Pet.objects.all()`: returns all instances of the Pet object model
+5. `pets = Pet.objects.all()`: to store it in a variable for continuous use
+6. `pet = pets[0]`
+7. `pet.name` or `pet.description` or `pet.id` etc
+8. ctrl + l
+9. `pet = Pet.objects.get(id=1)` is same as above for selecting the first pet
+10. `pet = Pet.objects.get(id=2)` to select a different pet
+11. `pet = Pet.objects.get(age=1)` exception: multiple results (our code must take care of this exception)
+12. `pet = Pet.objects.get(id=5555)` exception: does not exist (our code must take care of this exception)
+13. For many to many: `pet = Pet.objects.get(id=7)` and `pet.vaccinations.all()`: will return QuerySet of all the vaccinations
