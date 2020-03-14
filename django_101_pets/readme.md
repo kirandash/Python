@@ -156,3 +156,7 @@ URL Patterns example: For project
 
 ### 3.2 Implement URL patterns
 1. `url(r'^adoptions/(\d+)/', views.pet_detail, name='pet_detail')`
+
+### 3.3 Implement Django views
+1. render function: `return render(request, 'pet_detail.html', {'pet': pet})`
+2. 404 handling: `raise Http404('Pet not found')`
