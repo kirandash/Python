@@ -160,3 +160,11 @@ URL Patterns example: For project
 ### 3.3 Implement Django views
 1. render function: `return render(request, 'pet_detail.html', {'pet': pet})`
 2. 404 handling: `raise Http404('Pet not found')`
+
+## 4. Django Templates
+### 4.1 Intro
+1. Django templates are basically HTML files with additional syntaxes.
+2. Template syntax: `{{ variable }}`, `{%tag}`: template tags, `{{ variable|filter }}`: template filters
+
+### 4.2 Implementation
+1. Filter: `{{ pet.submission_date|date:"M d Y" }}`
