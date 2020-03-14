@@ -106,3 +106,11 @@ Running migrations on our project:
 7. Install sqlitebrowser. Launch.
 8. open database ---> select: db.sqlite3 file from our project.
 9. Tables: adoptions_pet, adoptions_vaccine, adoptions_pet_vaccinations (For Many To Many vaccinations field) + default django tables. Expanding each table, we can see all the fields we added to our db.
+
+### 2.6 Import CSV data
+1. Copy csv file to manage.py folder level
+2. Copy management folder to adoptions folder. Contains commands to import csv file to db
+3. Go to manage.py level. Run command: `python3 manage.py load_pet_data` (it will run the command load_pet_data.py and import csv into db)
+4. Go to sqlitebrowser tool. Select adoptions_pet table and click on browse data to see the imported data
+5. All these data is stored in db.sqlite3 file. So in case anytime there is an import error, we can always ask for db.sqlite3 file from a team member.
+
