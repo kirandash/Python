@@ -168,3 +168,5 @@ URL Patterns example: For project
 
 ### 4.2 Implementation
 1. Filter: `{{ pet.submission_date|date:"M d Y" }}`
+
+### 4.3 Structure Templates
