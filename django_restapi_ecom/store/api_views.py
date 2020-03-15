@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView # Django REST framework generic view for quick dev
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend # django-filters module with rest_framework provides filter backend feature.
+from rest_framework.filters import SearchFilter # Build in Django Rest Framework, supports search backend
 from rest_framework.pagination import LimitOffsetPagination
 
 from store.serializers import ProductSerializer

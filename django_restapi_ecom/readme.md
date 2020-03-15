@@ -66,3 +66,21 @@ Serializing:
 
 2. can verify at: http://localhost:8000/api/v1/products/?limit=2&offset=1
 3. It also returns a next prop which tells which api to call next to get next set of data. Ex: "http://localhost:8000/api/v1/products/?limit=2&offset=3"
+
+### 2.7 Quiz:
+1. Which method in a Serializer sub-class do we override to add extra data to a serialized response?
+
+    Ans: `to_representation`
+
+2. **ListAPIView:** The ListAPIView is the generic Django REST Framework view used to serialize a list of objects into a JSON API response.
+3. Django REST Framework API views can be created with the as_view method in the URLs configuration just like regular Django views. Django REST Framework maintains some API compatibility with Django’s views, and this is one case where they implement the same method.
+Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
+4. When using Django Filters with a serializer, what is the name of the configuration variable that sets which fields are used to filter the queryset data?
+
+    Ans: `filter_fields`: The filter_fields variable on a serializer will add the field as a URL query parameter and will filter the queryset of objects using those fields specified.
+5. Searching through text fields on a model is built into Django REST Framework. The search backend, unlike the filter backend, is built into Django REST Framework.
+6. What are the classes of Pagination available for paginating an API view?
+
+    Ans: There are three built in types of pagination available with Django REST Framework. **PageNumberPagination, LimitOffsetPagination, and CursorPagination**
+
+    Cursor pagination is the best performance choice for paginating large data sets. Page number and limit offset pagination are good for small- to medium-sized data sets. However, only cursor pagination (which uses the databases cursor) is efficient enough for large data sets.
