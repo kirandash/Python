@@ -47,4 +47,10 @@ Serializing:
 1. `from django_filters.rest_framework import DjangoFilterBackend`, use `DjangoFilterBackend` for straight field filters
 2. can check at http://localhost:8000/api/v1/products/?id=2
 3. For complicated filters with more logic, use `get_queryset` function
+4. can check at http://localhost:8000/api/v1/products/?on_sale=true
 
+### 2.5 Enabling full-text search filter back end
+1. Search through product names and descriptions
+2. **SearchFilter**: Filter back end built into Django REST Framework
+3. can be checked at http://localhost:8000/api/v1/products/?search=mineral
+4. Search types: Partial Match (default), Exact match, Regular Expression ex: $[Ee]ar$
