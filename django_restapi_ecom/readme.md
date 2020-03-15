@@ -9,7 +9,7 @@
 Setup:
 1. Create project: `django-admin.py startproject django_restapi_ecom`
 2. Install reqd modules: `pip3 install djangorestframework`
-3. `pip3 install django-filter`
+3. `pip3 install django-filter`: for filtering backend data
 4. `pip3 install Pillow`: for image uploader
 5. Migrations: `python3 manage.py makemigrations`, `python3 manage.py migrate`
 6. store folder is previously setup for this project. Includes store models.
@@ -42,3 +42,9 @@ Serializing:
 2. Add path to urlpatterns: `path('api/v1/products/', store.api_views.ProductList.as_view())`
 3. Run server: `python3 manage.py runserver`
 4. Check the REST API at: http://localhost:8000/api/v1/products/
+
+### 2.4 Filter backends with URL query params
+1. `from django_filters.rest_framework import DjangoFilterBackend`, use `DjangoFilterBackend` for straight field filters
+2. can check at http://localhost:8000/api/v1/products/?id=2
+3. For complicated filters with more logic, use `get_queryset` function
+
