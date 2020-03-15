@@ -54,3 +54,15 @@ Serializing:
 2. **SearchFilter**: Filter back end built into Django REST Framework
 3. can be checked at http://localhost:8000/api/v1/products/?search=mineral
 4. Search types: Partial Match (default), Exact match, Regular Expression ex: $[Ee]ar$
+
+### 2.6 Enabling pagination of querysets in API responses
+1. Django can limit querysets in 3 ways:
+
+    1.1 PageNumber pagination: use a pagenumber to paginate results
+    
+    1.2 LimitOffset pagination: Use a limit and offset fields to more finely paginate results.
+    
+    1.3 Cursor pagination: Use a DB cursor to paginate results (Recommended for larger database. Since other 2 are inefficient)
+
+2. can verify at: http://localhost:8000/api/v1/products/?limit=2&offset=1
+3. It also returns a next prop which tells which api to call next to get next set of data. Ex: "http://localhost:8000/api/v1/products/?limit=2&offset=3"
