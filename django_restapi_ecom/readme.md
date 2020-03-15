@@ -29,3 +29,8 @@ Serializing:
 13. >>> `from rest_framework.renderers import JSONRenderer`
 14. >>> `renderer = JSONRenderer()`
 15. >>> `print(renderer.render(data))` This is to finally render the serialized data
+
+### 2.2 Creating a ListAPIView subclass
+1. Product serializer ---> List API view ---> Products List returned from our API
+2. Django REST framework generic views: **ListAPIView, CreateAPIView, DestroyAPIView, RetrieveUpdateDestroyAPIView**: Django provides these generic views that help speed up dev work.
+3. Note: Most cases: Use Django REST framework's generic API views and mixins. Rare cases: use base APIView to build up the API from the ground up
