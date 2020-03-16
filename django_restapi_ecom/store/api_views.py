@@ -1,5 +1,5 @@
 from rest_framework.exceptions import ValidationError
-from rest_framework.generics import ListAPIView, CreateAPIView # Django REST framework generic view for quick dev
+from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView # Django REST framework generic view for quick dev
 from django_filters.rest_framework import DjangoFilterBackend # django-filters module with rest_framework provides filter backend feature.
 from rest_framework.filters import SearchFilter # Build in Django Rest Framework, supports search backend
 from rest_framework.pagination import LimitOffsetPagination
@@ -47,3 +47,17 @@ class ProductCreate(CreateAPIView):
         except ValueError:
             raise ValidationError({ 'price': 'A valid number is required' })
         return super().create(request, *args, **kwargs)
+
+# DestroyAPIView
+class ProductDestroy(DestroyAPIView):
+    queryset = Product.objects.all()
+    lookup_field = 'id'
+
+    def delete(self, request, *args, **kwargs):
+        product_id = request.data.get('id')
+        response = super().delete(request, *args, **kwargs)
+        # above code is sufficient for destroying a product but it is also important to clear the cache for the specific product in models, below code is for that
+        if response.status.code == 204:
+            from django.core.cache import cache
+            cache.delete('product_data_{}'.format(product_id))
+        return response

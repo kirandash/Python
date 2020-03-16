@@ -95,3 +95,6 @@ Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
 3. Run curl command in terminal: `curl -X POST http://localhost:8000/api/v1/products/new -d price=1.00 -d name='My Product' -d description='Hello World'`: will return a response with product details i.e. just created
 4. Dev team shared curl scripts to create quick models and test if REST API is working correctly
 5. We can also test the same on browser: visiting http://localhost:8000/api/v1/products/new (Django's tool for easy CRUD testing)
+
+### 3.3 Creating a DestroyAPIView subclass
+1. Delete a product and clear cache
