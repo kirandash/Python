@@ -84,3 +84,7 @@ Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
     Ans: There are three built in types of pagination available with Django REST Framework. **PageNumberPagination, LimitOffsetPagination, and CursorPagination**
 
     Cursor pagination is the best performance choice for paginating large data sets. Page number and limit offset pagination are good for small- to medium-sized data sets. However, only cursor pagination (which uses the databases cursor) is efficient enough for large data sets.
+
+## 3. CRUD operations for Models
+### 3.1 Creating a CreateAPIView subclass
+1. Data Source (Excel Spreadsheet / XML / JSON / Other DB) ---> Imported through REST API ---> Populating the DB 

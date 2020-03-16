@@ -1,4 +1,5 @@
-from rest_framework.generics import ListAPIView # Django REST framework generic view for quick dev
+from rest_framework.exceptions import ValidationError
+from rest_framework.generics import ListAPIView, CreateAPIView # Django REST framework generic view for quick dev
 from django_filters.rest_framework import DjangoFilterBackend # django-filters module with rest_framework provides filter backend feature.
 from rest_framework.filters import SearchFilter # Build in Django Rest Framework, supports search backend
 from rest_framework.pagination import LimitOffsetPagination
@@ -32,3 +33,17 @@ class ProductList(ListAPIView):
                 sale_end__gte=now # to check if sale_start is before today and sale_end is after today, then product is on sale
             )
         return queryset
+
+# CreateAPIView subclass
+class ProductCreate(CreateAPIView):
+    serializer_class = ProductSerializer
+    
+    # overwriting create fn
+    def create(self, request, *args, **kwargs):
+        try:
+            price = request.data.get('price')
+            if price is not None and float(price) <= 0.0:
+                raise ValidationError({ 'price': 'Must be above $0.0' }) # The validation is to make sure no one accidentally creates a Free product
+        except ValueError:
+            raise ValidationError({ 'price': 'A valid number is required' })
+        return super().create(request, *args, **kwargs)
