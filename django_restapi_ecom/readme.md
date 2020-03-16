@@ -98,3 +98,9 @@ Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
 
 ### 3.3 Creating a DestroyAPIView subclass
 1. Delete a product and clear cache
+
+### 3.4 Connecting a DestroyAPIView to the router
+1. Add path to urlparameter
+2. Visit url on browser http://localhost:8000/api/v1/products/5/destroy and click delete button
+3. Create a product `curl -X POST http://localhost:8000/api/v1/products/new -d price=5 -d name='Water Bottle' -d description='This bottle is amazing'` check all the products at http://localhost:8000/api/v1/products/
+4. Delete it: `curl -X DELETE http://localhost:8000/api/v1/products/7/destroy` check all the products at http://localhost:8000/api/v1/products/

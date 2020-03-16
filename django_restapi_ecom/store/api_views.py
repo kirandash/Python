@@ -57,7 +57,7 @@ class ProductDestroy(DestroyAPIView):
         product_id = request.data.get('id')
         response = super().delete(request, *args, **kwargs)
         # above code is sufficient for destroying a product but it is also important to clear the cache for the specific product in models, below code is for that
-        if response.status.code == 204:
+        if response.status_code == 204:
             from django.core.cache import cache
             cache.delete('product_data_{}'.format(product_id))
         return response
