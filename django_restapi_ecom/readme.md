@@ -104,3 +104,9 @@ Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
 2. Visit url on browser http://localhost:8000/api/v1/products/5/destroy and click delete button
 3. Create a product `curl -X POST http://localhost:8000/api/v1/products/new -d price=5 -d name='Water Bottle' -d description='This bottle is amazing'` check all the products at http://localhost:8000/api/v1/products/
 4. Delete it: `curl -X DELETE http://localhost:8000/api/v1/products/7/destroy` check all the products at http://localhost:8000/api/v1/products/
+
+### 3.5 RetrieveUpdateDestroyAPIView to Creating an UpdateAPIView subclass and retrieve + delete
+1. RetrieveUpdateDestroyAPIView helps us Reuse Django REST framework generic view instead of calling GET, POST, PUT, DELETE etc separately
+2. We can reuse code and configuration
+3. Example: the serializer_class or queryset can be reused
+4. One URL can be used to handle multiple HTTP methods.

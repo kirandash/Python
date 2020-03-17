@@ -1,5 +1,5 @@
 from rest_framework.exceptions import ValidationError
-from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView # Django REST framework generic view for quick dev
+from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, RetrieveUpdateDestroyAPIView # Django REST framework generic view for quick dev
 from django_filters.rest_framework import DjangoFilterBackend # django-filters module with rest_framework provides filter backend feature.
 from rest_framework.filters import SearchFilter # Build in Django Rest Framework, supports search backend
 from rest_framework.pagination import LimitOffsetPagination
@@ -60,4 +60,31 @@ class ProductDestroy(DestroyAPIView):
         if response.status_code == 204:
             from django.core.cache import cache
             cache.delete('product_data_{}'.format(product_id))
+        return response
+
+# Combine Retrieve, Update and Destroy in one
+class ProductRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    lookup_field = 'id'
+    serializer_class = ProductSerializer
+
+    def delete(self, request, *args, **kwargs):
+        product_id = request.data.get('id')
+        response = super().delete(request, *args, **kwargs)
+        # above code is sufficient for destroying a product but it is also important to clear the cache for the specific product in models, below code is for that
+        if response.status_code == 204:
+            from django.core.cache import cache
+            cache.delete('product_data_{}'.format(product_id))
+        return response
+
+    def update(self, request, *args, **kwargs):
+        response = super().update(request, *args, **kwargs)
+        if response.status_code == 200:
+            from django.core.cache import cache
+            product = response.data
+            cache.set('product_data_{}'.format(product['id']), {
+                'name': product['name'],
+                'description': product['description'],
+                'price': product['price']
+            })
         return response
