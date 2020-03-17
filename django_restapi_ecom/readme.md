@@ -110,6 +110,26 @@ Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
 2. We can reuse code and configuration
 3. Example: the serializer_class or queryset can be reused
 4. One URL can be used to handle multiple HTTP methods.
+5. The generic RetrieveUpdateDestroyAPIView combines the “get”, “put”, “patch”, and “delete” HTTP methods into one API view.
 
 ### 3.6 Connecting an UpdateAPIView to the router
 1. Add path to urlpatterns and visit http://localhost:8000/api/v1/products/1/ and can do update, delete or retrieve and check results at http://localhost:8000/api/v1/products/
+
+### 3.7 Quiz
+1. The ValidationError can be raised with an error message for a specific field by passing in a dictionary.
+
+    Code:
+
+    `from rest_framework.exceptions import ValidationError`
+
+    `raise ValidationError({ 'price': 'Must be above $0.0' })`
+
+2. Where is the HTTP method handled urls.py or api view?
+
+    Ans: The HTTP method isn't handled in the URL configuration. It’s part of the API view class where methods are defined for each type of HTTP method.
+
+3. In a DestroyAPIView, we can override the delete method to additionally clean up the cache, delete other models or record statistics. The HTTP method used by DestroyAPIView is “delete” and can be overridden to add more functionality such as cache clean-up after an object is destroyed.
+
+4. The generic RetrieveUpdateDestroyAPIView combines the “get”, “put”, “patch”, and “delete” HTTP methods into one API view.
+
+5. When using the RetrieveUpdateDestroyAPIVIew, the URL path pattern must include a model instance id or primary key. The primary key or id in the URL is used to identify the model instance that will be acted on.
