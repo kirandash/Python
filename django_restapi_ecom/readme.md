@@ -133,3 +133,10 @@ Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
 4. The generic RetrieveUpdateDestroyAPIView combines the “get”, “put”, “patch”, and “delete” HTTP methods into one API view.
 
 5. When using the RetrieveUpdateDestroyAPIVIew, the URL path pattern must include a model instance id or primary key. The primary key or id in the URL is used to identify the model instance that will be acted on.
+
+## 4. Managing Serializer fields, relations and validation
+### 4.1 Serializer with only selected fields
+Serializer field configuration:
+1. **read_only**: whether or not the field can be written to through the serializer
+2. **source**: where the data for the serializer field will be populated from ex: `product_name=serializers.CharField(source='name')`
+3. **min_length, max_length**

@@ -2,13 +2,17 @@ from rest_framework import serializers
 from store.models import Product
 
 class ProductSerializer(serializers.ModelSerializer):
+    # overwriting serializer field
+    is_on_sale = serializers.BooleanField(read_only=True)
+    current_price = serializers.FloatField(read_only=True)
+    description = serializers.CharField(min_length=2,max_length=200)
+
     class Meta:
         model = Product
-        fields = ('id', 'name', 'description', 'price', 'sale_start', 'sale_end')
+        fields = ('id', 'name', 'description', 'price', 'sale_start', 'sale_end', 'is_on_sale', 'current_price')
 
-    def to_representation(self, instance):
-        data = super().to_representation(instance) # calling to_representation from parent
-        data['is_on_sale'] = instance.is_on_sale() # is_on_sale of serialized data will be updated based on is_on_sale fn from models.py
-        data['current_price'] = instance.current_price() # current_price fn from models.py
-        return data # return data after projecting
-
+    # def to_representation(self, instance):
+    #     data = super().to_representation(instance) # calling to_representation from parent
+    #     data['is_on_sale'] = instance.is_on_sale() # is_on_sale of serialized data will be updated based on is_on_sale fn from models.py
+    #     data['current_price'] = instance.current_price() # current_price fn from models.py
+    #     return data # return data after projecting
