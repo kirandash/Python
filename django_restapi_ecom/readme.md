@@ -110,3 +110,6 @@ Ex: `path('api/v1/products/', store.api_views.ProductList.as_view()),`
 2. We can reuse code and configuration
 3. Example: the serializer_class or queryset can be reused
 4. One URL can be used to handle multiple HTTP methods.
+
+### 3.6 Connecting an UpdateAPIView to the router
+1. Add path to urlpatterns and visit http://localhost:8000/api/v1/products/1/ and can do update, delete or retrieve and check results at http://localhost:8000/api/v1/products/
