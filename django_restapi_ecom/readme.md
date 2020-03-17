@@ -140,3 +140,19 @@ Serializer field configuration:
 1. **read_only**: whether or not the field can be written to through the serializer
 2. **source**: where the data for the serializer field will be populated from ex: `product_name=serializers.CharField(source='name')`
 3. **min_length, max_length**
+
+### 4.2 Serializer that shows model relationships
+1. **SerializerMethodField**: get_ is the prefix to the field name for the method that is called.
+2. Serializer for one or many instances: **many=True** creates a list of serialized model instances
+3. **many=false** (default) will serialize only one model instance
+4. try in shell: `python3 manage.py shell` (We will add 5 of product id 1 to shopping cart and then return the JSON)
+5. >>>`import json`
+6. >>>`from store.models import *`
+7. >>>`from store.serializers import *`
+8. >>>`product = Product.objects.all().first()`
+9. >>>`cart = ShoppingCart()`
+10. >>>`cart.save()`
+11. >>>`item=ShoppingCartItem(shopping_cart=cart, product=product, quantity=5)`
+12. >>>`item.save()`
+13. >>>`serializer=ProductSerializer(product)`
+14. >>>`print(json.dumps(serializer.data, indent=2))`
