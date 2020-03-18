@@ -5,3 +5,8 @@
 1. `django-admin startproject django_portfolio`: create project
 2. rename root project folder name to 'django_portfolio_project' to avoid confusion with app folder name.
 3. go to manage.py file path and run: `python3 manage.py runserver`
+
+### 1.2 Creating a Django App
+1. Difference b/w project and app: Project is the entire website. App is a specific module viz Events/blog/accounts
+2. Create an app for jobs (Note: It is a good convention to always name your app in plural): `python3 manage.py startapp jobs`
+3. Add the app to `INSTALLED_APPS` in **settings.py** file
