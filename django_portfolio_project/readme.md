@@ -56,3 +56,8 @@
 
 ### 2.7 Pulling objects from DB
 1. `jobs = Job.objects` and `return render(request, 'jobs/home.html', {'jobs': jobs})` and html: `{% for job in jobs.all %}`
+
+## 3. Designing
+### 3.1 Bootstrap installation
+1. Get HTML from view source: https://getbootstrap.com/docs/4.4/examples/album/
+2. Get CSS and JS at: https://getbootstrap.com/docs/4.4/getting-started/introduction/ add it to head and script section.
