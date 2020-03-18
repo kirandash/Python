@@ -23,4 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('username', jobs.views.username, name='username'), # call fn username() from jobs/views.py file
     path('', jobs.views.homepage, name='homepage') # call fn homepage() from jobs/views.py file
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # defining what will be the static url and static document or files root
+] 
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # defining what will be the static url and static document or files root
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

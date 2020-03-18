@@ -127,3 +127,6 @@ USE_TZ = True
 STATIC_URL = '/static/' # url where the assets are loaded after rendering website on localhost or production
 # like url we can also define which folder our files our stored in the disk
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') # always make it dynamic
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR # since uploaded images are at base directory images
