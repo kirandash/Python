@@ -32,3 +32,12 @@
 3. After adding settings compiler will through an error: **ModuleNotFoundError: No module named 'psycopg2'** To fix; `pip3 install psycopg2` (helps us to connect to postgres)
 4. If the above throws erro: try: `pip3 install psycopg2-binary`
 5. Run the server again to make sure there isn't any error and DB is connected properly
+
+### 2.4 Migrations and migrate
+1. Migrations helps us to migrate/save models to db
+2. Run the command: `python3 manage.py makemigrations`: run this any time there is a new model or changes to an existing model
+3. Create migrations folder in jobs/0001_initial.py
+4. No need to touch files in migration folder
+5. check all existing migrations: `python3 manage.py showmigrations` shows the new 0001_intitial migration and all the default migration files from django. [ ] prefix for the migration name means these are not applied yet.
+6. Apply migration to all the models so far: `python3 manage.py migrate`
+7. check migrations: `python3 manage.py showmigrations` [X] means the migrations are applied
