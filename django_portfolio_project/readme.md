@@ -12,3 +12,7 @@
 3. Add the app to `INSTALLED_APPS` in **settings.py** file
 
 ### 1.3 Setting up URLs
+
+## 2. Databases
+### 2.1 Creating models
+1. `image = models.ImageField(upload_to='images/')` Note for using ImageField we will have to install pillow if we haven't `pip3 install pillow`
