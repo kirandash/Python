@@ -63,3 +63,8 @@
 2. Get CSS and JS at: https://getbootstrap.com/docs/4.4/getting-started/introduction/ add it to head and script section.
 
 ### 3.2 Paye layout and templates adjustments
+
+### 3.3 Adding static images to project
+1. `STATIC_ROOT = os.path.join(BASE_DIR, 'static')`
+2. `urlPatterns = [] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)`
+3. Note: Django will automatically collect all the files from static folders in project to be used in project

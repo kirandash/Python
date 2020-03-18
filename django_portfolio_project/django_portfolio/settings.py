@@ -124,4 +124,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # url where the assets are loaded after rendering website on localhost or production
+# like url we can also define which folder our files our stored in the disk
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # always make it dynamic
