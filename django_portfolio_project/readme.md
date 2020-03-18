@@ -94,3 +94,14 @@
 
 ### 4.3 Designing Object Detail View and adding navigations
 1. `<a href="{% url 'home' %}">` to navigate. home is the name attr mentioned in urlpatterns
+
+### 4.4 URL paths with parameters
+1. {{}} and {% %}, {{}} are used whenever there is any value passed to the html template from render fn. {% %} is used for other variables
+2. Navigation: `<a href="{% url 'detail' job.id %}">`
+
+## 5. To Learn:
+1. https://www.djangoproject.com/
+2. Class based views
+3. Authentication
+4. REST APIs
+5. Deploying Django App (AWS/Digital Ocean, Heroku, Python)
