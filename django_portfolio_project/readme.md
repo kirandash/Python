@@ -48,3 +48,8 @@
 3. Login at http://localhost:8000/admin/
 4. But admin yet doesn't show up the new Job model we created. To show that we have to let django know by editing the jobs/admin.py file
 5. `admin.site.register(Job)`. Now the Job model will appear on dashboard
+
+### 2.6 Creating Model objects via the admin panel
+1. Go to admin
+2. Click on Add icon next to Jobs model and add jobs (image and summary). It will create a new **Job Object** everytime we save a job detail.
+3. Images will be uploaded to **django_portfolio/images** folder since we mentioned it in **jobs/models.py** file
