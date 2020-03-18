@@ -41,3 +41,10 @@
 5. check all existing migrations: `python3 manage.py showmigrations` shows the new 0001_intitial migration and all the default migration files from django. [ ] prefix for the migration name means these are not applied yet.
 6. Apply migration to all the models so far: `python3 manage.py migrate`
 7. check migrations: `python3 manage.py showmigrations` [X] means the migrations are applied
+
+### 2.5 Setting up admin panel and registering Job Model for admin
+1. admin panel comes by default and added to the urlpattern.
+2. To use the admin panel we will need a user. create a superuser: `python3 manage.py createsuperuser` (kiran, djangodb1234)
+3. Login at http://localhost:8000/admin/
+4. But admin yet doesn't show up the new Job model we created. To show that we have to let django know by editing the jobs/admin.py file
+5. `admin.site.register(Job)`. Now the Job model will appear on dashboard
