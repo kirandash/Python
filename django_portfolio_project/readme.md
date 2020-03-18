@@ -87,3 +87,7 @@
 ## 4. Object Details
 ### 4.1 Connecting URLs and templates in Django
 1. Proper labeling of job objects in admin
+
+### 4.2 Creating Job Detail View
+1. user `get_object_or_404`. look in db for Job with pk: primary key set as jobid, if found return an object or 404
+2. Note that pk can't be changed in DB
