@@ -91,3 +91,6 @@
 ### 4.2 Creating Job Detail View
 1. user `get_object_or_404`. look in db for Job with pk: primary key set as jobid, if found return an object or 404
 2. Note that pk can't be changed in DB
+
+### 4.3 Designing Object Detail View and adding navigations
+1. `<a href="{% url 'home' %}">` to navigate. home is the name attr mentioned in urlpatterns
