@@ -9,14 +9,14 @@
 
 <!doctype html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Test Author">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Django Example</title>
+    <title>Django + Python Example</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -48,13 +48,14 @@
 
         <section class="jumbotron text-center">
             <div class="container">
-                <h1>Django example</h1>
+                <h1>Django + Python example</h1>
                 <p class="lead text-muted">Something short and leading about the collection below—its contents, the
                     creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it
                     entirely.</p>
                 <p>
                     <a href="mailto:test@gmail.com" class="btn btn-primary my-2">Email Django team</a>
                 </p>
+                <img src="{% static 'logo.png' %}" height="200"/>
             </div>
         </section>
 

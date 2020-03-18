@@ -68,3 +68,10 @@
 1. `STATIC_ROOT = os.path.join(BASE_DIR, 'static')`
 2. `urlPatterns = [] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)`
 3. Note: Django will automatically collect all the files from static folders in project to be used in project
+
+### 3.4 collectstatic
+1. we have added image to jobs/static/logo.png : app level static folder
+2. from manage.py folder run: `python3 manage.py collectstatic`. It will collect all the files from all the static folders in our apps and collectively put them in one place - a root level static folder. Note that it will add our image + static content from admin as well which comes by default.
+3. static folder: static/admin, static/logo.png will be created
+4. `{% load static %}` load static before head in html file
+5. Add image to code `<img src="{% static 'logo.png' %}" height="200"/>`
