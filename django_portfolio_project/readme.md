@@ -25,3 +25,10 @@
 5. Change postgres password if needed : `\password postgres` enter password
 6. Create Database: `CREATE DATABASE django_portfoliodb;` (Don't forget the semicolon)
 7. will be able to see the newly created DB on PostgreSQL dashboard
+
+### 2.3 Connecting Django project to PostgreSQL DB
+1. Change DATABASES settings in settings.py file. Replace sqlite settings with postgres settings
+2. Note sqlite didn't need username and pswd bt postgres will need these additional settings. PostgreSQL is more robutst.
+3. After adding settings compiler will through an error: **ModuleNotFoundError: No module named 'psycopg2'** To fix; `pip3 install psycopg2` (helps us to connect to postgres)
+4. If the above throws erro: try: `pip3 install psycopg2-binary`
+5. Run the server again to make sure there isn't any error and DB is connected properly
