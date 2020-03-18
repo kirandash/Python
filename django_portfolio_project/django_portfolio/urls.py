@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import jobs.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('username', jobs.views.username, name='username') # call fn username() from jobs/views.py file
 ]
