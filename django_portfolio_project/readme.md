@@ -83,3 +83,7 @@
 
 ### 3.6 Dynamic images from DB
 1. Add MEDIA_URL and MEDIA_ROOT to settings.py file
+
+## 4. Object Details
+### 4.1 Connecting URLs and templates in Django
+1. Proper labeling of job objects in admin
