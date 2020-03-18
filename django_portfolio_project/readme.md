@@ -75,3 +75,8 @@
 3. static folder: static/admin, static/logo.png will be created
 4. `{% load static %}` load static before head in html file
 5. Add image to code `<img src="{% static 'logo.png' %}" height="200"/>`
+
+### 3.5 Add bootstrap, jquery and popper as static asset
+1. Bootstrap, jQuery and popper.js
+2. https://getbootstrap.com/docs/4.4/getting-started/download/, https://jquery.com/download/, https://popper.js.org/
+3. copy everything to jobs/static folder and to make it available, run command `python3 manage.py collectstatic`
