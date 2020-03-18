@@ -61,3 +61,5 @@
 ### 3.1 Bootstrap installation
 1. Get HTML from view source: https://getbootstrap.com/docs/4.4/examples/album/
 2. Get CSS and JS at: https://getbootstrap.com/docs/4.4/getting-started/introduction/ add it to head and script section.
+
+### 3.2 Paye layout and templates adjustments
