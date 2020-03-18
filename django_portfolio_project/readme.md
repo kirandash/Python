@@ -53,3 +53,6 @@
 1. Go to admin
 2. Click on Add icon next to Jobs model and add jobs (image and summary). It will create a new **Job Object** everytime we save a job detail.
 3. Images will be uploaded to **django_portfolio/images** folder since we mentioned it in **jobs/models.py** file
+
+### 2.7 Pulling objects from DB
+1. `jobs = Job.objects` and `return render(request, 'jobs/home.html', {'jobs': jobs})` and html: `{% for job in jobs.all %}`

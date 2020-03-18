@@ -19,5 +19,6 @@ import jobs.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('username', jobs.views.username, name='username') # call fn username() from jobs/views.py file
+    path('username', jobs.views.username, name='username'), # call fn username() from jobs/views.py file
+    path('', jobs.views.homepage, name='homepage') # call fn homepage() from jobs/views.py file
 ]
