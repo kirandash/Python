@@ -19,6 +19,16 @@ class ProductSerializer(serializers.ModelSerializer):
         min_value=1.00, max_value=100000,
         max_digits=None, decimal_places=2
     )
+    sale_start = serializers.DateTimeField(
+        input_formats=['%I:%M %p %d %B %Y'], format=None, 
+        allow_null=True, help_text='Accepted format is "12:01 PM 19 March 2020"',
+        style={'input_type': 'text', 'placeholder': '04:01 PM 23 March 2020'}
+    )
+    sale_end = serializers.DateTimeField(
+        input_formats=['%I:%M %p %d %B %Y'], format=None, 
+        allow_null=True, help_text='Accepted format is "12:01 PM 19 March 2020"',
+        style={'input_type': 'text', 'placeholder': '04:01 PM 23 March 2020'}
+    )
 
     class Meta:
         model = Product

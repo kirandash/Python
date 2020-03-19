@@ -162,3 +162,11 @@ Serializer field configuration:
 2. FloatField(min_value, max_value)
 3. DecimalField(min_value, max_value, max_digits, decimal_places): has more control compared to the FloatField
 4. Test by editing values at: http://localhost:8000/api/v1/products/1/
+
+### 4.4 DateTimeField configuration
+1. **input_formats**: for Date/Time i/p formats: default: ISO-8601 ex: "2020-03-29T12:01:56.000000Z"
+2. **format**: o/p format: default: DateTime object
+3. **help_text**: appears in browser for the REST API
+4. **style**: controls how field appears in browser for REST API (eg input and placeholder styling)
+5. Add the sale_start and sale_end fields to serializers.py file. http://localhost:8000/api/v1/products/1/
+6. Acceptable input ex: sale_start: "11:05 PM 16 Mar 2020", saved in ISO-8601. Note: if any error is thrown after saving, just reload the page. The saved data will show up
