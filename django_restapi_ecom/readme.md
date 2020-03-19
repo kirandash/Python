@@ -156,3 +156,9 @@ Serializer field configuration:
 12. >>>`item.save()`
 13. >>>`serializer=ProductSerializer(product)`
 14. >>>`print(json.dumps(serializer.data, indent=2))`
+
+### 4.3 Number fields with serializers
+1. IntegerField(min_value, max_value)
+2. FloatField(min_value, max_value)
+3. DecimalField(min_value, max_value, max_digits, decimal_places): has more control compared to the FloatField
+4. Test by editing values at: http://localhost:8000/api/v1/products/1/
