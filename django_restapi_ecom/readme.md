@@ -171,6 +171,11 @@ Serializer field configuration:
 5. Add the sale_start and sale_end fields to serializers.py file. http://localhost:8000/api/v1/products/1/
 6. Acceptable input ex: sale_start: "11:05 PM 16 Mar 2020", saved in ISO-8601. Note: if any error is thrown after saving, just reload the page. The saved data will show up
 
-### 4.4 Lists, Dicts and JSON objects
+### 4.5 Lists, Dicts and JSON objects
 1. Creating a serializer to show stats. This won't be a model serializer.
 2. The stats will hold daily sales of a particular product.
+
+### 4.6 Serializer with ImageField and FileField
+Show photo field in JSON and add warranty file content to product description field if a file is uploaded.
+1. Serializer settings: Note that all serializer fields are read_only bydefault. But if a field is not present in the model, we should set it as write_only true. But note that it will not be saved in model.
+2. **validated_data**: This data has already passed through serializer and model validation process. It is used to create or update a model.
