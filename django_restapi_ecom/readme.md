@@ -179,3 +179,18 @@ Serializer field configuration:
 Show photo field in JSON and add warranty file content to product description field if a file is uploaded.
 1. Serializer settings: Note that all serializer fields are read_only bydefault. But if a field is not present in the model, we should set it as write_only true. But note that it will not be saved in model.
 2. **validated_data**: This data has already passed through serializer and model validation process. It is used to create or update a model.
+
+### 4.7 Module 4 Quiz
+1. How to make sure a serializer field is read only?
+
+    Ans: `serializers.BooleanField(read_only=True)`
+
+2. All number serializer fields, IntegerField, FloatField and DecimalField can be constrained with min_value and max_value.
+
+3. DateTimeField serializer field can accept custom i/p format for the date and time.
+
+4. For DictField serializer field, value can be any data type and key must be a string.
+
+5. Example of composite fields: DictField, ListField
+
+6. write-only field in model serializer is used: when the field is used to populate other model fields
