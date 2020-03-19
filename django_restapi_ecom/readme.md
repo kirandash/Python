@@ -194,3 +194,21 @@ Show photo field in JSON and add warranty file content to product description fi
 5. Example of composite fields: DictField, ListField
 
 6. write-only field in model serializer is used: when the field is used to populate other model fields
+
+## 5. Testing API Views
+### 5.1 Test case for CreateAPIView subclass with APITestCase
+1. Django REST framework has 4 types of API test cases: APISimpleTestCase, APITransactionTestCase, APITestCase, APILiveServerTestCase
+2. **APITestCase**: 
+
+    2.1 All of the test case classes implement the same interface as Django's TestCase class
+
+    2.2 Note: Use the JSON format when testing API client requests: `self.client.post(url, data, format='json')`
+3. REST APIs with custom data:
+    
+    3.1 REST APIs can return custom data fields that are created through serializer fields or through overriding the to_representation method
+    
+    3.2 Ex: is_on_sale, current_price are updated from method calls
+
+    3.3 Important to thorougly test custom data to ensure it's correct: one untested field can cause API consumers and clients to fail or crash
+
+4. Run test: `python3 manage.py test`: This will fail if sale_start and sale_end is not made optional. Please modify serializers.py file accordingly. and run `python3 manage.py test`. New error: `unexpected keyword argument warranty` which means warranty is not mentioned as a part of the create method. Fix this by implementing create method and removing warranty from the validated_data. Run the test again and now everything should pass
