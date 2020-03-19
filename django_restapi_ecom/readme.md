@@ -221,3 +221,5 @@ Show photo field in JSON and add warranty file content to product description fi
 
 ### 5.4 Test case for UpdateAPIView subclass
 1. Update API View is failing. Fix that by updating API view properly in serializers.py file
+
+### 5.5 Test case for image upload in UpdateAPIView subclass

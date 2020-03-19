@@ -1,3 +1,6 @@
+import os.path
+from django.conf import settings
+
 from rest_framework.test import APITestCase
 
 from store.models import Product
@@ -63,3 +66,30 @@ class ProductUpdateTestCase(APITestCase):
         )
         updated = Product.objects.get(id=product.id) # get the updated product details
         self.assertEqual(updated.name, 'New Product') # check if updated name matches our i/p
+
+    def test_upload_product_photo(self):
+        product = Product.objects.first()
+        original_photo = product.photo
+        photo_path = os.path.join(
+            settings.MEDIA_ROOT, 'products', 'vitamin-iron.jpg' # Note: MEDIA_ROOT is defined in settings.py file
+        ) # new photo to be uploaded
+        with open(photo_path, 'rb') as photo_data: # opening photo path for upload
+            response = self.client.patch(
+                '/api/v1/products/{}/'.format(product.id),
+                { 'photo': photo_data },
+                format='multipart' # since upload
+            ) # uploading new photo data
+        self.assertEqual(response.status_code, 200) # check if upload was successful with a status OK
+        
+        self.assertNotEqual(response.data['photo'], original_photo) # make sure photo from response is not same as original photo we had
+
+        try:
+            updated = Product.objects.get(id=product.id)
+            expected_photo = os.path.join(
+                settings.MEDIA_ROOT, 'products', 'vitamin-iron'
+            )
+            self.assertTrue(
+                updated.photo.path.startswith(expected_photo)
+            ) # make sure photo is updated in model
+        finally:
+            os.remove(updated.photo.path) # finally remove the photo after testing
