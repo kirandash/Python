@@ -223,3 +223,15 @@ Show photo field in JSON and add warranty file content to product description fi
 1. Update API View is failing. Fix that by updating API view properly in serializers.py file
 
 ### 5.5 Test case for image upload in UpdateAPIView subclass
+
+### 5.6 Module 5 Quiz
+1. Django REST Framework HTTP client for testing implements the same interface as Django HTTP client
+2. Django REST Framework APITestCases for testing has the same interface from the Django TestCase unit testing class
+3. Response of paginated ListAPIView: results
+4. Unit test for UpdateAPIView, which HTTP methods to use: PATCH and PUT
+5. When writing unit test to test ImageField or FileField, the format of HTTP request must be "multipart" than "json"
+
+### 5.7 Next Reads:
+1. Designing RESTful APIs
+2. Advanced web development with Django
+3. Consume API with React
