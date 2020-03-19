@@ -48,3 +48,18 @@ class ProductListTestCase(APITestCase):
         self.assertIsNone(response.data['previous']) # making sure next and previous exists
         self.assertEqual(response.data['count'], products_count) # make sure the count prop has correct value
         self.assertEqual(len(response.data['results']), products_count) # make sure the length of results is correct count, no need to test each product since we are already testing individual product in different test case above
+
+class ProductUpdateTestCase(APITestCase):
+    def test_update_product(self):
+        product = Product.objects.first()
+        response = self.client.patch(
+            '/api/v1/products/{}/'.format(product.id), 
+            {
+                'name': 'New Product',
+                'description': 'Awesome product',
+                'price': '153.22'
+            },
+            format='json'
+        )
+        updated = Product.objects.get(id=product.id) # get the updated product details
+        self.assertEqual(updated.name, 'New Product') # check if updated name matches our i/p

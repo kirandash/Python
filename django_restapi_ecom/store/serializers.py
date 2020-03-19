@@ -54,7 +54,8 @@ class ProductSerializer(serializers.ModelSerializer):
             instance.description += b': '.join(
                 validated_data['warranty'].readlines()
             ).decode()
-        return instance
+        # return instance # This was just returning instance and not updating the model
+        return super().update(instance, validated_data)
 
     def create(self, validated_data):
         validated_data.pop('warranty')
