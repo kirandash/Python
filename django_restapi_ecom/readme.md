@@ -215,3 +215,6 @@ Show photo field in JSON and add warranty file content to product description fi
 
 ### 5.2 Test case for DestroyAPIView subclass
 1. Note: in production projects, make sure to test that cleanup methods are executed when destroying the model through API. Ex: clear caches, destory the object in other 3rd-party services
+
+### 5.3 Test case for ListAPIView subclass
+1. Add test fn and run `python3 manage.py test`

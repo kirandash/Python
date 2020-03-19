@@ -39,3 +39,12 @@ class ProductDestroyTestCase(APITestCase):
             Product.DoesNotExist,
             Product.objects.get, id=product_id
         ) # confirm that the product id does not exist in Product model anymore
+
+class ProductListTestCase(APITestCase):
+    def test_list_products(self):
+        products_count = Product.objects.count()
+        response = self.client.get('/api/v1/products/') # get all products
+        self.assertIsNone(response.data['next'])
+        self.assertIsNone(response.data['previous']) # making sure next and previous exists
+        self.assertEqual(response.data['count'], products_count) # make sure the count prop has correct value
+        self.assertEqual(len(response.data['results']), products_count) # make sure the length of results is correct count, no need to test each product since we are already testing individual product in different test case above
