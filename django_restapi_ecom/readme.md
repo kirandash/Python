@@ -170,3 +170,7 @@ Serializer field configuration:
 4. **style**: controls how field appears in browser for REST API (eg input and placeholder styling)
 5. Add the sale_start and sale_end fields to serializers.py file. http://localhost:8000/api/v1/products/1/
 6. Acceptable input ex: sale_start: "11:05 PM 16 Mar 2020", saved in ISO-8601. Note: if any error is thrown after saving, just reload the page. The saved data will show up
+
+### 4.4 Lists, Dicts and JSON objects
+1. Creating a serializer to show stats. This won't be a model serializer.
+2. The stats will hold daily sales of a particular product.

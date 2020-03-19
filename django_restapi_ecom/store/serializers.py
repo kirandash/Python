@@ -43,3 +43,11 @@ class ProductSerializer(serializers.ModelSerializer):
     def get_cart_items(self, instance):
         items = ShoppingCartItem.objects.filter(product=instance)
         return CartItemSerializer(items, many=True).data
+
+class ProductStatSerializer(serializers.Serializer):
+    # A composite serializer
+    stats = serializers.DictField( # dictionary of stats
+        child = serializers.ListField( # list of dates
+            child=serializers.IntegerField() # no of products sold in a day - all sales listed in an array
+        )
+    )
