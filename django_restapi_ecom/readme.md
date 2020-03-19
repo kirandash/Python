@@ -212,3 +212,6 @@ Show photo field in JSON and add warranty file content to product description fi
     3.3 Important to thorougly test custom data to ensure it's correct: one untested field can cause API consumers and clients to fail or crash
 
 4. Run test: `python3 manage.py test`: This will fail if sale_start and sale_end is not made optional. Please modify serializers.py file accordingly. and run `python3 manage.py test`. New error: `unexpected keyword argument warranty` which means warranty is not mentioned as a part of the create method. Fix this by implementing create method and removing warranty from the validated_data. Run the test again and now everything should pass
+
+### 5.2 Test case for DestroyAPIView subclass
+1. Note: in production projects, make sure to test that cleanup methods are executed when destroying the model through API. Ex: clear caches, destory the object in other 3rd-party services
