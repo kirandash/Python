@@ -31,5 +31,5 @@ urlpatterns = [
     re_path(r'^api/v1/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('oauth/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    re_path(r'^(?P<path>.*)$', serve, { 'document_root': settings.FRONTEND_ROOT }),
+    re_path(r'^(?P<path>.*)$', serve, { 'document_root': settings.FRONTEND_ROOT }), # to serve react code
 ]

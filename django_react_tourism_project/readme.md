@@ -29,3 +29,19 @@
 1. Install dependencies: `pip install django-oauth-toolkit`
 2. Run `python3 manage.py makemigrations` and `python3 manage.py migrate`
 3. Add initial react frontend code
+
+### 2.2 Run servers: FE and BE
+1. activate venv: `source django_restapi_ecom_env/bin/activate`
+2. `cd django_react_tourism_project`
+3. `python3 manage.py runserver` will throw an error at 8000 port "Directory indexes are not allowed here." will handle later
+4. Now for FE cd `dj_react_tourism_frontend`
+5. `npm install`
+6. `npm start` will start server at 3000
+
+### 2.3 Preparing react code for production
+1. **browserslist**: This is used by react, angular and other FE frameworks to allow JS libraries like babel and TS to know which JS features should be polyfilled or natively supported by browsers. Modern browsers build will be faster since no need of polyfils or transformation. (Defined in package.json file)
+2. **>0.2%**: all browser versions above 0.2% global usage.
+3. **Not Dead**: Targets new browser versions, not older browser versions viz IE6
+4. **not op_mini all**: Does not support Opera mini, any version of the browser
+5. Create a build: `npm run-script build`. It will create a prod ready build folder.
+6. Once build is ready, project can be seen at http://localhost:8000/index.html
