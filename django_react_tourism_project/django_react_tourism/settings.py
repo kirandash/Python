@@ -127,7 +127,7 @@ STATIC_URL = '/django_static/'
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'api', 'uploads'))
 MEDIA_URL = '/uploads/'
 
-FRONTEND_ROOT = os.path.abspath(os.path.join(BASE_DIR, '..', 'dj_react_tourism_frontend', 'build'))
+FRONTEND_ROOT = os.path.abspath(os.path.join(BASE_DIR, '..', 'django_react_tourism_ui', 'build'))
 
 # Authentication using OAuth 2.0
 AUTHENTICATION_BACKENDS = (
