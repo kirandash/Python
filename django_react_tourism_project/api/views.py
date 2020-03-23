@@ -2,6 +2,7 @@ from django.core.cache import cache
 from rest_framework.generics import CreateAPIView
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.filters import BaseFilterBackend, SearchFilter
 from rest_framework.permissions import BasePermission
 
@@ -90,9 +91,14 @@ class WishlistItemViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         return Response()
 
+# Creating a subclass to overwrite PageNumberPagination
+class PackakgePagination(PageNumberPagination):
+    page_size = 9 # overwriting default page size
+
 # Creating a Package View Set for public use
 class PublicPackageViewSet(viewsets.ModelViewSet):
     permission_classes = [TokenHasScope]
     required_scopes = ['read'] # readonly scope, as we don't want people to be able to edit the packages
     queryset = Package.objects.all().order_by('-price') # query all packages in descending price order(-price)
     serializer_class = PackageSerializer # reusing existing package serializer class
+    pagination_class = PackakgePagination

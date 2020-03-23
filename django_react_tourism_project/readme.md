@@ -86,3 +86,11 @@ Ans: proxy
 1. use `setOrderItem` and `clearOrderItem` in App.js to trigger when wishlist item added to cart or item removed from cart but stays on wishlist.
 2. call the API in wishlistCartStatus method in file ServiceApi.js file.
 3. Test by adding the packages to reserve on browser and then removing it.
+
+### 3.5 Pagination with Django
+3 Types of pagination:
+1. **LimitOffset pagination**: Limits how many items are on a page and pages through by the offset number
+2. **Cursor Pagination**: Relies on DB cursor to return pages of items. Good for large data sets.
+3. **PagNumber Pagination**: Has a page size and a page number. Uses Django's default Paginator class. (Simpler approach)\
+We are going to use PageNumber pagination.
+1. In views.py file, apply PageNumber Pagination to PublicPackageViewSet
