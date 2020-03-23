@@ -7,9 +7,9 @@ let _accessToken;
 
 export function getAccessToken() {
   return new Promise((resolve) => {
-    if (_accessToken) {
+    if (_accessToken) { // if accesstoken is already present, resolve promise immediately
       resolve(_accessToken);
-    } else {
+    } else { // else set access token with client credentials
       const data = {
         grant_type: 'client_credentials',
         client_id: clientId,
@@ -19,30 +19,30 @@ export function getAccessToken() {
       Axios.post('/oauth/token/', data).then((response) => {
         _accessToken = response.data.access_token;
         resolve(_accessToken);
-      });
+      }); // provide the credentials to Django oauth default API, which will return a unique token that we can then use to resolve our promise
     }
   });
 }
 
 export async function getConfig() {
-  const accessToken = await getAccessToken();
+  const accessToken = await getAccessToken(); // asynchronously gets the applications oAuth access token
   const config = {
     headers: {
       Authorization: `Bearer ${accessToken}`
     }
-  };
+  }; // sets up header with access token
   return new Promise((resolve) => {
     resolve(config);
-  });
+  }); // resolve promise
 }
 
 export default {
   async retrieveWishlist() {
-    const config = await getConfig();
+    const config = await getConfig(); // configs for HTTP request methods
     return new Promise((resolve) => {
       Axios.get('/api/v1/wishlist/', config).then((response) => {
         resolve(response.data);
-      });
+      }); // get wishlist 
     });
   },
 
@@ -83,5 +83,14 @@ export default {
         resolve(response.data);
       });
     });
+  },
+
+  async createBooking(data) {
+    const config = await getConfig();
+    return new Promise((resolve) => {
+      Axios.post('/api/v1/bookings/', data, config).then((response) => {
+        resolve(response.data)
+      });
+    })
   }
 }

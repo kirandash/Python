@@ -132,3 +132,13 @@ Ans: `router = DefaultRouter(); router.register(r'public/packages', ShoppingCart
 2. Create BookingSerializer using Booking model in serializers.py file
 3. Register url path in urls.py file using Django default router `router.register(r'bookings', api.views.BookingViewSet)`
 4. Check the result here: http://localhost:8000/api/v1/bookings/: where we will see our list of bookings and a form to create new bookings.
+
+### 4.2 Creating a REST API service class with React and Axios
+1. Call wishlist API in retrieveWishlist method in ServiceApi.js file.
+
+Authentication:
+1. Client credentials: Used for Back-end servers that communicate with other APIs or for front ends that communicate with a server.
+2. Password: Used for Front ends where a user logs in with their username and password.
+
+Code:
+1. write createBooking method in ServiceApi.js file to do a POST call for booking.
