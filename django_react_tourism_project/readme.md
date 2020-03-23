@@ -153,3 +153,6 @@ Code:
 ### 4.5 Connecting a React component to a Service
 1. Add validation to createBooking. In ServiceApi.js, add reject method.
 2. In Checkout.js add validation for isOrderPlaced
+
+### 4.6 Validating Data with Django REST Framework
+1. Add validation to BookingSerializer for Street address format with `validate_street_address()` method
