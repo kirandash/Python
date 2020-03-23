@@ -59,7 +59,7 @@ class App extends React.Component {
       ServiceApi.wishlistCartStatus(item.id, true).then(() => {
         this.setState({ item });
         resolve(item);
-      });
+      }); // wishlist item added to cart
     });
   }
 
@@ -68,7 +68,7 @@ class App extends React.Component {
       ServiceApi.wishlistCartStatus(itemId, false).then(() => {
         this.setState({ item: null });
         resolve();
-      });
+      }); // item removed from cart but stays on wishlist
     });
   }
 

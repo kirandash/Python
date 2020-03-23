@@ -81,3 +81,8 @@ Ans: proxy
 5. For BE, we will need an admin. So create a superuser: `python3 manage.py createsuperuser` username: kiran, password: mycommonpwd
 6. Go to Admin at http://localhost:8000/admin/
 7. Check wishlist at http://localhost:8000/admin/api/wishlistitem/. Toggling wishlist items on FE should reflect here on BE
+
+### 3.4 Partially updating an item using React
+1. use `setOrderItem` and `clearOrderItem` in App.js to trigger when wishlist item added to cart or item removed from cart but stays on wishlist.
+2. call the API in wishlistCartStatus method in file ServiceApi.js file.
+3. Test by adding the packages to reserve on browser and then removing it.
