@@ -100,3 +100,6 @@ We are going to use PageNumber pagination.
 2. Modify List.js to implement pagination.
 3. Modifer retrieveList to send pagination details (page number)
 4. After changing FE/React code always make sure to create a build: `npm run-script build` and then run python server to check result.
+
+### 3.7 Filtering with Django
+1. Use BasicFilterBackend and SearchFilter from rest framework filters to create Price Filter and Search Filter for our app.

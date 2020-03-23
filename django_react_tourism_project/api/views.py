@@ -3,7 +3,7 @@ from rest_framework.generics import CreateAPIView
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.filters import BaseFilterBackend, SearchFilter
+from rest_framework.filters import BaseFilterBackend, SearchFilter # For Filtering Packages in Django
 from rest_framework.permissions import BasePermission
 
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
@@ -95,6 +95,18 @@ class WishlistItemViewSet(viewsets.ViewSet):
 class PackakgePagination(PageNumberPagination):
     page_size = 9 # overwriting default page size
 
+# Creating a subclass for Price Filter
+class PackagePriceFilterBackend(BasicFilterBackend):
+    def filter_queryset(self, request, queryset, view): # modifying the default filter behavior
+        filters = {}
+        price_min = request.query_params.get('price_min', None) # get price_min param from query params
+        if price_min: # if price_min param is present in query
+            filters['price__gte'] = price_min # set price__gte filter
+        price_max = request.query_params.get('price_max', None)
+        if price_max:
+            filters['price__lte'] = price_max
+        return queryset.filter(**filters) # set our new filter sas queryset filter
+
 # Creating a Package View Set for public use
 class PublicPackageViewSet(viewsets.ModelViewSet):
     permission_classes = [TokenHasScope]
@@ -102,3 +114,5 @@ class PublicPackageViewSet(viewsets.ModelViewSet):
     queryset = Package.objects.all().order_by('-price') # query all packages in descending price order(-price)
     serializer_class = PackageSerializer # reusing existing package serializer class
     pagination_class = PackakgePagination
+    filter_backends = (PackagePriceFilterBackend, SearchFilter) # define which filters to use for the retrieve API - Price and Search Filter
+    search_fields = ('name', 'promo') # search filter to look for which fields - name and promo fields in model
