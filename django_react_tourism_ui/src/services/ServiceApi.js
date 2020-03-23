@@ -87,9 +87,11 @@ export default {
 
   async createBooking(data) {
     const config = await getConfig();
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       Axios.post('/api/v1/bookings/', data, config).then((response) => {
         resolve(response.data)
+      }).catch((error) => {
+        reject(error.response.data);
       });
     })
   }

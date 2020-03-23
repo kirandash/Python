@@ -149,3 +149,7 @@ Code:
 ### 4.4 Creating form fields for basic form
 1. Each form field is controlled by FormField component in FormField.js. 
 2. CSS for Checkout.js is in Checkout.css file.
+
+### 4.5 Connecting a React component to a Service
+1. Add validation to createBooking. In ServiceApi.js, add reject method.
+2. In Checkout.js add validation for isOrderPlaced

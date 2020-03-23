@@ -13,10 +13,11 @@ export default class Checkout extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { validationErrors: [], orderPlaced: false };
+    this.state = { validationErrors: [], orderPlaced: false }; // to check if order is placed or not and other validation errors
   }
 
   placeOrder() {
+    // place order method
     this.context.placeOrder().then(() => {
       this.setState({ validationErrors: [], orderPlaced: true });
     }).catch((validationErrors) => {
@@ -75,7 +76,8 @@ export default class Checkout extends React.Component {
     //     />
     //   );
     // });
-
+    
+    // Check if order is placed
     if (orderPlaced) {
       return (
         <section className="Checkout">
@@ -121,7 +123,7 @@ export default class Checkout extends React.Component {
             <button disabled={orderPlaced || item === null}
               onClick={this.placeOrder.bind(this)}>
                 Place order
-            </button>
+            </button>{/* on click place the order and disable the button if order is placed or if there is no item in cart */}
           </div>
         </section>
       </section>
