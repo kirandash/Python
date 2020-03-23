@@ -25,14 +25,14 @@ export default class Checkout extends React.Component {
   }
 
   render() {
-    const { booking, item, updateField, clearOrderItem } = this.context;
+    const { booking, item, updateField, clearOrderItem } = this.context; // data from context required for form
     const { validationErrors, orderPlaced } = this.state;
     const inputFields = [
       { label: 'Name', name: 'name' },
       { label: 'Email Address', name: 'email_address' },
       { label: 'Street Address', name: 'street_address' },
       { label: 'City', name: 'city' },
-    ];
+    ]; // input fields for Form
 
     const errors = [];
     inputFields.forEach((field) => {
@@ -53,6 +53,7 @@ export default class Checkout extends React.Component {
     //   );
     // });
 
+    // Fields to show on Form
     const formFields = inputFields.map((fieldProps) => {
       return (
         <ValidatedField
@@ -86,6 +87,7 @@ export default class Checkout extends React.Component {
       );
     }
 
+    // If there is an item added to checkout. Show remove button
     let displayItem;
     if (item) {
       displayItem = (

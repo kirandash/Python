@@ -142,3 +142,6 @@ Authentication:
 
 Code:
 1. write createBooking method in ServiceApi.js file to do a POST call for booking.
+
+### 4.3 Creating a basic form as a React Component
+1. Add the Form elements and methods to Checkout.js page
