@@ -63,3 +63,8 @@ Ans: Two
 3. For React, running `npm run-script build` will create a production build for the React App.
 4. For a React project, which configuration key in package.json needs to be set so that API requests are proxied to a local REST API server?\
 Ans: proxy
+
+## 3. Filtering and Pagination with Django and React
+### 3.1 Creating a ViewSet with Django
+1. Create PublicPackageViewSet in views.py using existing serializer PackageSerializer.
+2. Use Django REST Framework DefaultRouter in urls.py to navigate to PublicPackageViewSet: `router.register(r'public/packages', api.views.PublicPackageViewSet)`

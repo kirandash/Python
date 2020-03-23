@@ -30,6 +30,7 @@ class CanWritePackageFilterBackend(BaseFilterBackend):
         ).values_list('package__id', flat=True)
         return queryset.filter(id__in=own_package_ids)
 
+# The below Package View Set is for admin
 class PackageViewSet(viewsets.ModelViewSet):
     queryset = Package.objects.all()
     serializer_class = PackageSerializer
@@ -88,8 +89,9 @@ class WishlistItemViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         return Response()
 
+# Creating a Package View Set for public use
 class PublicPackageViewSet(viewsets.ModelViewSet):
     permission_classes = [TokenHasScope]
-    required_scopes = ['read']
-    queryset = Package.objects.all().order_by('-price')
-    serializer_class = PackageSerializer
+    required_scopes = ['read'] # readonly scope, as we don't want people to be able to edit the packages
+    queryset = Package.objects.all().order_by('-price') # query all packages in descending price order(-price)
+    serializer_class = PackageSerializer # reusing existing package serializer class
