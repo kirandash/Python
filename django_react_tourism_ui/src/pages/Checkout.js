@@ -13,15 +13,15 @@ export default class Checkout extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { validationErrors: [], orderPlaced: false }; // to check if order is placed or not and other validation errors
+    this.state = { validationErrors: [], orderPlaced: false }; // to check if order is placed or not and validation errors array to contain all validationErros messages
   }
 
   placeOrder() {
     // place order method
     this.context.placeOrder().then(() => {
-      this.setState({ validationErrors: [], orderPlaced: true });
+      this.setState({ validationErrors: [], orderPlaced: true }); // If successful, set orderPlaced as true and remove validationErrors
     }).catch((validationErrors) => {
-      this.setState({ validationErrors, orderPlaced: false });
+      this.setState({ validationErrors, orderPlaced: false }); // If error, set orderPlaced as false and add validationErrors
     });
   }
 
@@ -35,6 +35,7 @@ export default class Checkout extends React.Component {
       { label: 'City', name: 'city' },
     ]; // input fields for Form
 
+    // Extract errors and build list of errors to add in render
     const errors = [];
     inputFields.forEach((field) => {
       const error = validationErrors[field.name] 
@@ -113,7 +114,7 @@ export default class Checkout extends React.Component {
         <section className="Checkout-form">
           <form>
             <ul>
-              {errors}
+              {errors} {/* List of Errors from API response */}
             </ul>
             {formFields}
           </form>

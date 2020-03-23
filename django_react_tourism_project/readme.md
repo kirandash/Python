@@ -156,3 +156,22 @@ Code:
 
 ### 4.6 Validating Data with Django REST Framework
 1. Add validation to BookingSerializer for Street address format with `validate_street_address()` method
+
+### 4.7 Displaying Validation errors with React
+1. Add the code in Checkout.js
+
+### 4.8 Module 4 Quiz
+1. What is destructuring?\
+Ans: Destructuring an object is to extract specific fields from objects and assigning them to variables. Ex: `const { a, b, c } = data;`
+2. In Django REST Framework, how to define a custom validation fn for the field named "cost"?\
+Ans: Add the following code to serializer: `def validate_cost(self, value): return True`
+3. When using Promises in JS, how to handle errors? Write sample code.\
+Ans: For Promise, the `catch()` method is used to handle errors. Code: `promise.then(() => {}).catch((error) => { console.log(error)) })`
+4. In React, with form input fields, which 2 attributes should you bind?\
+Ans: `value and onChange`
+5. In React, what are contexts used for?\
+Ans: Contexts are used to share data and methods without having to pass them through every component's props.
+6. To use Axios to send an HTTP request, which code will set the OAuth token header correctly?\
+Ans: ``{ headers: { 'Authorization': `Bearer ${oauthToken}` } }``
+7. In Django REST Framework, how to set which serializer is used for a viewset?\
+Ans: `serializer_class = MySerializer`
