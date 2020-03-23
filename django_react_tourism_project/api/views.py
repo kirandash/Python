@@ -43,15 +43,16 @@ class WishlistItemViewSet(viewsets.ViewSet):
     permission_classes = [BasePermission]
     session_id = 'wishlist-items'
 
-    def destroy(self, request, pk=None):
+    # Deleting Wishlist Item
+    def destroy(self, request, pk=None): #pk: package id
         package_id = pk
         item = self.queryset.filter(
             session_id=self.session_id,
             package__in=[package_id],
         )
-        item.delete()
-        cache.delete('wishlist:{}'.format(self.session_id))
-        return Response('Item removed from wishlist', status=200)
+        item.delete() # delete the item
+        cache.delete('wishlist:{}'.format(self.session_id)) # delete the item from cache
+        return Response('Item removed from wishlist', status=200) # return status 200 or ok
 
     def update(self, request, pk=None):
         return Response()

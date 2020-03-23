@@ -35,6 +35,7 @@ class App extends React.Component {
 
   toggleWishlist(itemId) {
     let toggle;
+    // Delete or add an item to Wishlist by calling wishlistDelete or wishlistAdd API
     if (this.state.wishlist.includes(itemId)) {
       toggle = ServiceApi.wishlistDelete(itemId);
     } else {

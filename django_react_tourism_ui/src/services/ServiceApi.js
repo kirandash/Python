@@ -52,6 +52,7 @@ export default {
     return Axios.post('/api/v1/wishlist/', data, config);
   },
 
+  // Delete item from Wishlist
   async wishlistDelete(itemId) {
     const config = await getConfig();
     return Axios.delete(`/api/v1/wishlist/${itemId}/`, config);

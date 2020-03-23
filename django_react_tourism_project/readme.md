@@ -72,3 +72,12 @@ Ans: proxy
 ### 3.2 Displaying List of items in React
 1. Create a List class in List.js file.
 2. Call API using retrieveList in ServiceAPI.js
+
+### 3.3 Toggling an Item from Wishlist using React and Django
+1. App.js: Delete or add an item to Wishlist by calling wishlistDelete or wishlistAdd API
+2. wishlistDelete to be added in ServiceApi.js
+3. In Django: Add the destroy method to WishlistItemViewSet in view.py file
+4. Now run the server and check if it works in FE and BE
+5. For BE, we will need an admin. So create a superuser: `python3 manage.py createsuperuser` username: kiran, password: mycommonpwd
+6. Go to Admin at http://localhost:8000/admin/
+7. Check wishlist at http://localhost:8000/admin/api/wishlistitem/. Toggling wishlist items on FE should reflect here on BE
