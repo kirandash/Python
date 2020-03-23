@@ -3,6 +3,7 @@ import './FormField.css';
 import { useValidation } from './FieldValidation';
 
 export function FormField(props) {
+  // Form Field class to create form field in Checkout.js
   const { name, label, value, onUpdate } = props;
   const onChange = (event) => {
     onUpdate(name, event.target.value);

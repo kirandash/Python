@@ -145,3 +145,7 @@ Code:
 
 ### 4.3 Creating a basic form as a React Component
 1. Add the Form elements and methods to Checkout.js page
+
+### 4.4 Creating form fields for basic form
+1. Each form field is controlled by FormField component in FormField.js. 
+2. CSS for Checkout.js is in Checkout.css file.
