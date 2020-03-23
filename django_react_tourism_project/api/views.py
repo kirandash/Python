@@ -116,3 +116,8 @@ class PublicPackageViewSet(viewsets.ModelViewSet):
     pagination_class = PackakgePagination
     filter_backends = (PackagePriceFilterBackend, SearchFilter) # define which filters to use for the retrieve API - Price and Search Filter
     search_fields = ('name', 'promo') # search filter to look for which fields - name and promo fields in model
+
+class BookingViewSet(viewsets.ModelViewSet):
+    queryset = Booking.objects.all() # get all bookings
+    serializer_class = BookingSerializer
+    permission_classes = [BasePermission] # so we don't have to check for oAuth tokens and other permissions

@@ -8,6 +8,7 @@ class PackageSerializer(serializers.ModelSerializer):
         model = Package
         fields = '__all__'
 
+# Create the Booking Serializer using Booking model
 class BookingSerializer(serializers.ModelSerializer):
     STREET_ADDRESS_ERROR = 'Street address must be in the format "11 Abc St."'
 

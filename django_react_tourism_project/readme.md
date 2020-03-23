@@ -125,3 +125,10 @@ Ans: delete
 Ans: key
 8. Using Django REST Framework, which code will define a new route to the "ShoppingCartViewset"?
 Ans: `router = DefaultRouter(); router.register(r'public/packages', ShoppingCartViewset)`
+
+## 4. Forms with React and Django
+### 4.1 Handling creating models with Django REST Framework
+1. Create BookingViewSet in views.py
+2. Create BookingSerializer using Booking model in serializers.py file
+3. Register url path in urls.py file using Django default router `router.register(r'bookings', api.views.BookingViewSet)`
+4. Check the result here: http://localhost:8000/api/v1/bookings/: where we will see our list of bookings and a form to create new bookings.

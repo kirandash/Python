@@ -25,7 +25,8 @@ import api.views
 router = DefaultRouter()
 router.register(r'packages', api.views.PackageViewSet)
 router.register(r'wishlist', api.views.WishlistItemViewSet)
-router.register(r'public/packages', api.views.PublicPackageViewSet) # Add Public Package View Set to Django Rest Framework DefaultRouter 
+router.register(r'public/packages', api.views.PublicPackageViewSet) # Add Public Package View Set to Django Rest Framework DefaultRouter
+router.register(r'bookings', api.views.BookingViewSet)
 
 urlpatterns = [
     re_path(r'^api/v1/', include(router.urls)),
