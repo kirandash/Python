@@ -68,3 +68,7 @@ Ans: proxy
 ### 3.1 Creating a ViewSet with Django
 1. Create PublicPackageViewSet in views.py using existing serializer PackageSerializer.
 2. Use Django REST Framework DefaultRouter in urls.py to navigate to PublicPackageViewSet: `router.register(r'public/packages', api.views.PublicPackageViewSet)`
+
+### 3.2 Displaying List of items in React
+1. Create a List class in List.js file.
+2. Call API using retrieveList in ServiceAPI.js

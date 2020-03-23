@@ -22,6 +22,7 @@ export class OneItemList extends React.Component {
   }
 }
 
+// React Component to show List of Items
 export default class List extends React.Component {
   static contextType = AppContext;
 

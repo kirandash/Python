@@ -71,9 +71,10 @@ export default {
       });
     });
   },
-
+  
+  // Retrieve List of packages by calling Django REST API
   async retrieveList() {
-    const config = await getConfig();
+    const config = await getConfig(); // To get React Config app token
     return new Promise((resolve) => {
       Axios.get('/api/v1/public/packages/', config).then((response) => {
         resolve(response.data);
