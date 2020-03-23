@@ -94,3 +94,9 @@ Ans: proxy
 3. **PagNumber Pagination**: Has a page size and a page number. Uses Django's default Paginator class. (Simpler approach)\
 We are going to use PageNumber pagination.
 1. In views.py file, apply PageNumber Pagination to PublicPackageViewSet
+
+### 3.6 Pagination with React
+1. Create pagination in Pagination.js
+2. Modify List.js to implement pagination.
+3. Modifer retrieveList to send pagination details (page number)
+4. After changing FE/React code always make sure to create a build: `npm run-script build` and then run python server to check result.

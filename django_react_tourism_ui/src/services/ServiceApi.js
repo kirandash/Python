@@ -74,8 +74,10 @@ export default {
   },
   
   // Retrieve List of packages by calling Django REST API
-  async retrieveList() {
+  async retrieveList(pageIndex) {
     const config = await getConfig(); // To get React Config app token
+    config['params'] = {}; // params to send to API
+    config['params']['page'] = pageIndex;
     return new Promise((resolve) => {
       Axios.get('/api/v1/public/packages/', config).then((response) => {
         resolve(response.data);

@@ -3,6 +3,7 @@ import './List.css';
 
 import { AppContext } from '../AppContext';
 import Item from '../components/Item';
+import Pagination from '../components/Pagination';
 import ServiceApi from '../services/ServiceApi';
 
 export class OneItemList extends React.Component {
@@ -30,22 +31,37 @@ export default class List extends React.Component {
     super(props);
     this.state = {
       list: [],
+      pageIndex: 1, // current page index in starting
       totalItems: 0
     }
     this.updateList();
   }
 
   updateList() {
-    ServiceApi.retrieveList().then((data) => {
-      const results = data;
-      const count = data.length;
+    const { pageIndex } = this.state;
+    ServiceApi.retrieveList(pageIndex).then((data) => {
+      // const results = data;
+      // const count = data.length;
+      const { results, count } = data; // Since pagination is implemented in Django, count can be retrieved from API
       this.setState({ list: results, totalItems: count });
     })
   }
 
+  previousPage() {
+    // previous page callback
+    this.setState({ pageIndex: this.state.pageIndex - 1 });
+    this.updateList();
+  }
+
+  nextPage() {
+    // Next page callback
+    this.setState({ pageIndex: this.state.pageIndex + 1 });
+    this.updateList();
+  }
+
   render() {
     const { wishlist, toggleWishlist } = this.context;
-    const { list } = this.state;
+    const { list, pageIndex, totalItems } = this.state;
     return (
       <section className="List" data-testid="list">
         <section className="List-items">
@@ -53,6 +69,15 @@ export default class List extends React.Component {
             return (<Item key={item.id} route={`/details/${item.id}`} item={item} wishlist={wishlist} toggleWishlist={toggleWishlist} />);
           })}
         </section>
+        <footer>
+          <Pagination
+            pageIndex={pageIndex}
+            total={totalItems}
+            perPage={9}
+            onNext={this.nextPage.bind(this)}
+            onPrevious={this.previousPage.bind(this)}
+          />
+        </footer>
       </section>
     )
   }
