@@ -4,6 +4,7 @@ import './List.css';
 import { AppContext } from '../AppContext';
 import Item from '../components/Item';
 import Pagination from '../components/Pagination';
+import Filters from '../components/Filters';
 import ServiceApi from '../services/ServiceApi';
 
 export class OneItemList extends React.Component {
@@ -32,19 +33,44 @@ export default class List extends React.Component {
     this.state = {
       list: [],
       pageIndex: 1, // current page index in starting
-      totalItems: 0
+      totalItems: 0,
+      filters: {
+        price_min: null,
+        price_max: null,
+        search: '' 
+      }
     }
     this.updateList();
   }
 
   updateList() {
-    const { pageIndex } = this.state;
-    ServiceApi.retrieveList(pageIndex).then((data) => {
+    const { pageIndex, filters } = this.state;
+    
+    // Setting query params to be sent to server
+    const queryParams = {};
+    if (filters.price_min) {
+      queryParams.price_min = filters.price_min;
+    }
+    if (filters.price_max) {
+      queryParams.price_max = filters.price_max;
+    }
+    if (filters.search && filters.search.length > 0) {
+      queryParams.search = filters.search;
+    }
+
+    ServiceApi.retrieveList(pageIndex, queryParams).then((data) => {
       // const results = data;
       // const count = data.length;
       const { results, count } = data; // Since pagination is implemented in Django, count can be retrieved from API
       this.setState({ list: results, totalItems: count });
     })
+  }
+
+  updateFilters(filters) {
+    // On updateFilters, modify the state and call updateList method
+    this.setState({ filters }, () => {
+      this.updateList();
+    });
   }
 
   previousPage() {
@@ -64,6 +90,9 @@ export default class List extends React.Component {
     const { list, pageIndex, totalItems } = this.state;
     return (
       <section className="List" data-testid="list">
+        <header>
+          <Filters onFilterUpdate={this.updateFilters.bind(this)} />
+        </header>
         <section className="List-items">
           {list.map(item => {
             return (<Item key={item.id} route={`/details/${item.id}`} item={item} wishlist={wishlist} toggleWishlist={toggleWishlist} />);

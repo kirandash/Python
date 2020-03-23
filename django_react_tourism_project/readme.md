@@ -103,3 +103,25 @@ We are going to use PageNumber pagination.
 
 ### 3.7 Filtering with Django
 1. Use BasicFilterBackend and SearchFilter from rest framework filters to create Price Filter and Search Filter for our app.
+
+### 3.8 Filtering with React
+1. Add code to Filters.js
+2. Modify List.js to include Filter on top of the page
+3. Modify retrieve API call to include the filter params as queryParams
+
+### Module 3 Quiz
+1. Output of code: `console.log('a'); this.setState({ a: 2 }, () => { console.log('b') }); console.log('c')` ---> acb
+2. In Django, which is the correct code to filter a queryset where the "price" field is greater than or equal to "100"?\
+Ans: `queryset.filter(price__gte=100)`
+3. Write the code to use Axios to send the "item" query parameter\
+Ans: `Axios.get('/', { params: { item: 1 } })`
+4. What is the name of the Django REST framework paginator that paginates by limit and offset?\
+Ans: `LimitOffsetPagination`
+5. Which HTTP method is used to indicate that a request partially updates some data?\
+Ans: `PATCH`
+6. When using Axios for making HTTP calls, what is the name of the method that will send a DELETE request?\
+Ans: delete
+7. In React, when using the `map` fn to render a list of React components, which attribute uniquely identifies each component?\
+Ans: key
+8. Using Django REST Framework, which code will define a new route to the "ShoppingCartViewset"?
+Ans: `router = DefaultRouter(); router.register(r'public/packages', ShoppingCartViewset)`

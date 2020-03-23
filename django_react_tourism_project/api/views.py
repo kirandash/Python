@@ -96,7 +96,7 @@ class PackakgePagination(PageNumberPagination):
     page_size = 9 # overwriting default page size
 
 # Creating a subclass for Price Filter
-class PackagePriceFilterBackend(BasicFilterBackend):
+class PackagePriceFilterBackend(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view): # modifying the default filter behavior
         filters = {}
         price_min = request.query_params.get('price_min', None) # get price_min param from query params
