@@ -45,3 +45,21 @@
 4. **not op_mini all**: Does not support Opera mini, any version of the browser
 5. Create a build: `npm run-script build`. It will create a prod ready build folder.
 6. Once build is ready, project can be seen at http://localhost:8000/index.html
+
+### 2.4 Serving React code through Static Django Files
+1. **settings.py**: Add `FRONTEND_ROOT = os.path.abspath(os.path.join(BASE_DIR, '..', 'django_react_tourism_ui', 'build'))`
+2. **urls.py**: `from django.conf.urls.static import serve` and add `re_path(r'^(?P<path>.*)$', serve, { 'document_root': settings.FRONTEND_ROOT })` to urlpatterns
+3. Run django server and site will be available at localhost:8000/index.html
+
+### 2.5 Navigating between React Components using React Router
+1. React only provides components. React router helps us navigate through the components and makes components behave like a page on the website.
+2. To use react router: wrap our entire app in `<BrowserRouter>` and then use `<NavLink to="/">Explore our tours</NavLink>` to navigate through paths
+
+### 2.6 Module 2 Quiz
+1. Using React Router, define a Route that uses the DetailsPage component.\
+Ans: `<Route path='/details' component='DetailsPage'/>`
+2. In Django, there are how many ways to serve static files in the URL configuration?\
+Ans: Two
+3. For React, running `npm run-script build` will create a production build for the React App.
+4. For a React project, which configuration key in package.json needs to be set so that API requests are proxied to a local REST API server?\
+Ans: proxy

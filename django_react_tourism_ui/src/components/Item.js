@@ -12,7 +12,7 @@ export default function Item(props) {
         <AddToWishList wishlist={wishlist} itemId={item.id} toggle={toggleWishlist} />
         <Link to={route}>
           {item.name}
-        </Link>
+        </Link>{/* React Navigation to details page */}
       </h3>
       <img src={item.thumbnail_url} alt={item.name} />
       <p className="Item-price">
@@ -27,7 +27,7 @@ export default function Item(props) {
         </span>
       </p>
       <p>{item.promo}</p>
-      <Link className="Item-more" to={route}>Learn more!</Link>
+      <Link className="Item-more" to={route}>Learn more!</Link>{/* React Navigation to details page */}
     </div>
   )
 }

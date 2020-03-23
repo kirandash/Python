@@ -105,7 +105,7 @@ class App extends React.Component {
             <AppContext.Provider value={this.state}>
               <Route path="/" exact component={List} />
               <Route path="/details/:id" component={Details} />
-              <Route path="/checkout" component={Checkout} />
+              <Route path="/checkout" component={Checkout} />{/* React Navigation to Components */}
             </AppContext.Provider>
           </section>
         </div>
