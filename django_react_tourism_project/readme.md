@@ -195,3 +195,16 @@ Ans: `serializer_class = MySerializer`
 1. we will useState hook in FieldValidation.js
 2. Implement useValidation hook from FieldValidation.js in FormField.js component. Call validate method and render ErrorDisplay component.
 3. In checkout page, use FormFieldUsingHooks instead of ValidatedFields.
+
+### 5.5 Module 5 Quiz
+1. In React, what does the `useState` hook do?\
+Ans: It manages state in a React component. This React hook replaces setState and this.state = {}. And use `setVariablename` instead of `this.setState({ variablename })`.
+2. In React, what does the `useEffect` hook do?\
+Ans: It replaces the `componentWillMount` and `componentWillUnmount` methods of a React component.
+3. What are higher order components in React?\
+Ans: Higher order components in React are used to encapsulate reusable functinality that needs to be used in multiple components.
+
+## 6. Testing React and Django
+### 6.1 Unit testing a component
+1. Add test cases to Filters_test.js file
+2. Run `npm test`
