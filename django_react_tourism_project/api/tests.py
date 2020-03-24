@@ -45,24 +45,24 @@ class CachingTestCase(APITestCase):
 
 class SortingFilteringTestCase(APITestCase):
     def setUp(self):
-        Package.objects.all().delete()
+        Package.objects.all().delete() # first clear all packages by deleting
 
     def test_sorting_and_filtering(self):
-        discount_package = Package.objects.create(category='a', name='a', price=1.0, rating='easy', tour_length=1)
+        discount_package = Package.objects.create(category='a', name='a', price=1.0, rating='easy', tour_length=1) # create packages for testing
         expensive_package = Package.objects.create(category='b', name='b', price=99.0, rating='medium', tour_length=2)
-        user = User.objects.create(username='user')
-        token = create_access_token(user)
-        response = self.client.get('/api/v1/public/packages/', **auth_header(token))
+        user = User.objects.create(username='user') # create user
+        token = create_access_token(user) # create access token
+        response = self.client.get('/api/v1/public/packages/', **auth_header(token)) # call api to get all packages
         ids = list(map(lambda result: result['id'], response.data['results']))
-        self.assertListEqual(ids, [expensive_package.id, discount_package.id])
+        self.assertListEqual(ids, [expensive_package.id, discount_package.id]) # check if response data matches with our dummy data
 
-        response = self.client.get('/api/v1/public/packages/?search=a', **auth_header(token))
+        response = self.client.get('/api/v1/public/packages/?search=a', **auth_header(token)) # call api with search filter
         ids = list(map(lambda result: result['id'], response.data['results']))
-        self.assertListEqual(ids, [discount_package.id])
+        self.assertListEqual(ids, [discount_package.id]) # check if discount_package with name 'a' is in result
 
-        response = self.client.get('/api/v1/public/packages/?price_min=50.00', **auth_header(token))
+        response = self.client.get('/api/v1/public/packages/?price_min=50.00', **auth_header(token)) # filter with minimum price
         ids = list(map(lambda result: result['id'], response.data['results']))
-        self.assertListEqual(ids, [expensive_package.id])
+        self.assertListEqual(ids, [expensive_package.id]) # check if expensive_package with price 99 > 50 is in result
 
 class ValidationTestCase(APITestCase):
     def test_invalid_street_address_returns_error(self):
