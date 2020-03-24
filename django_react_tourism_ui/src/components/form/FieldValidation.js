@@ -5,7 +5,7 @@ export function withFieldValidation(WrappedComponent) {
   return class extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { error: null };
+      this.state = { error: null }; // all errors
     }
 
     validate(name, value) {

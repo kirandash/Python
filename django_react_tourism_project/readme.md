@@ -181,3 +181,7 @@ Ans: `serializer_class = MySerializer`
 1. When user is on checkout page, we will add some urgency that they should place order.
 2. Create timer on OnHold.js component
 3. Add OnHold component to Checkout.js page.
+
+### 5.2 Creating a higher order component with React
+1. Create FieldValidation.js, a higher order component
+2. Use it to create a new component in Checkout.js page

@@ -6,7 +6,7 @@ import { FormField, FormFieldUsingHooks } from '../components/form/FormField';
 import { withFieldValidation } from '../components/form/FieldValidation';
 import { FaMinusCircle } from 'react-icons/fa';
 
-const ValidatedField = withFieldValidation(FormField);
+const ValidatedField = withFieldValidation(FormField); // ValidatedField is a new component created using the higher order component: withFieldValidation
 
 export default class Checkout extends React.Component {
   static contextType = AppContext;
