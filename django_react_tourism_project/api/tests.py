@@ -72,15 +72,15 @@ class ValidationTestCase(APITestCase):
             'street_address': 'Invalid St.',
             'city': 'City',
             'package': 1,
-        }
+        } # sample invalid data
 
-        response = self.client.post('/api/v1/bookings/', data)
-        self.assertEqual(response.status_code, 400)
+        response = self.client.post('/api/v1/bookings/', data) # post data to bookings API
+        self.assertEqual(response.status_code, 400) # check if status_code = 400 ie error
         self.assertEqual(
             response.data['street_address'][0],
             BookingSerializer.STREET_ADDRESS_ERROR
-        )
+        ) # check if error message matches
 
-        data['street_address'] = '11 Abc St.'
+        data['street_address'] = '11 Abc St.' # valid data
         response = self.client.post('/api/v1/bookings/', data)
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 201) # check if status_code = 201 with valid data

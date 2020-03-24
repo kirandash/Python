@@ -239,3 +239,7 @@ Ans: Higher order components in React are used to encapsulate reusable functinal
 ### 6.6 Unit testing sorting and filtering in Django
 1. Add SortingFilteringTestCase to django/api/tests.py file.
 2. Run test: `python3 manage.py test`
+
+### 6.7 Unit testing validation for the REST API in Django
+1. Create `class ValidationTestCase(APITestCase):` in django/api/tests.py file
+2. Run test: `python3 manage.py test`
