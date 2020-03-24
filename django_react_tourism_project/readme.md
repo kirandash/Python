@@ -230,3 +230,8 @@ Ans: Higher order components in React are used to encapsulate reusable functinal
 ### 6.4 End2End testing the Filtered data table
 1. Add e2e test cases in filter_item.spec.js file. (For testing filter)
 2. `npm run e2e`
+
+### 6.5 Unit testing caching with Django REST framework
+1. django/api/tests.py file
+2. Add test cases to `CachingTestCase` class.
+3. Run test: python3 manage.py test

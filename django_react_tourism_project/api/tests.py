@@ -29,19 +29,19 @@ def auth_header(token):
 
 class CachingTestCase(APITestCase):
     def test_wishlist_cache(self):
-        package = Package.objects.create(category='a', name='package', price=0.0, rating='medium', tour_length=1)
+        package = Package.objects.create(category='a', name='package', price=0.0, rating='medium', tour_length=1) # create a dummy package
 
-        self.assertIsNone(cache.get('wishlist:wishlist-items'))
-        response = self.client.get('/api/v1/wishlist/')
-        self.assertListEqual(response.data, [])
-        self.assertListEqual(cache.get('wishlist:wishlist-items'), [])
+        self.assertIsNone(cache.get('wishlist:wishlist-items')) # make sure wishlist is not present in cache
+        response = self.client.get('/api/v1/wishlist/') # get the wishlist api response
+        self.assertListEqual(response.data, []) # make sure wishlist data is empty array in API response
+        self.assertListEqual(cache.get('wishlist:wishlist-items'), []) # make sure wishlist is empty array in cache
 
-        response = self.client.post('/api/v1/wishlist/', { 'id': package.id })
-        self.assertIsNone(cache.get('wishlist:wishlist-items'))
+        response = self.client.post('/api/v1/wishlist/', { 'id': package.id }) # add package to wishlist
+        self.assertIsNone(cache.get('wishlist:wishlist-items')) # cache should still be empty
 
-        response = self.client.get('/api/v1/wishlist/')
+        response = self.client.get('/api/v1/wishlist/') # call get wishlist API
         self.assertListEqual(response.data, [package.id])
-        self.assertListEqual(cache.get('wishlist:wishlist-items'), [package.id])
+        self.assertListEqual(cache.get('wishlist:wishlist-items'), [package.id]) # cache should have package id right now
 
 class SortingFilteringTestCase(APITestCase):
     def setUp(self):
