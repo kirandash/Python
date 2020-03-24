@@ -226,3 +226,7 @@ Ans: Higher order components in React are used to encapsulate reusable functinal
 1. Use cypress for End2End testing.
 2. Add checkout form test cases in: cypress/integration/submit_form_spec.js file.
 3. For e2e test: make sure django server and react server are running and then run: `npm run e2e`
+
+### 6.4 End2End testing the Filtered data table
+1. Add e2e test cases in filter_item.spec.js file. (For testing filter)
+2. `npm run e2e`
