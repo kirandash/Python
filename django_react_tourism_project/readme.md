@@ -221,3 +221,8 @@ Ans: Higher order components in React are used to encapsulate reusable functinal
     - **queryByTestId**: searches for DOM elements with the `data-testid` attribute
     - **getByText**: Finds elements containing the given text, similar to queryByPlaceholder
 5. run `npm test`
+
+### 6.3 End2End testing the form submission process for checkokut page
+1. Use cypress for End2End testing.
+2. Add checkout form test cases in: cypress/integration/submit_form_spec.js file.
+3. For e2e test: make sure django server and react server are running and then run: `npm run e2e`
