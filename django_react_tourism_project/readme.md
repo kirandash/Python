@@ -243,3 +243,19 @@ Ans: Higher order components in React are used to encapsulate reusable functinal
 ### 6.7 Unit testing validation for the REST API in Django
 1. Create `class ValidationTestCase(APITestCase):` in django/api/tests.py file
 2. Run test: `python3 manage.py test`
+
+### 6.8 Module 6 Quiz
+1. In Django unit testing, what is the function to assert two objects are the same?\
+Ans: assertEqual. Ex: `self.assertEqual(response.status_code, 400)`
+2. In Django unit testing, what is the fn to compare 2 lists?\
+Ans: assertListEqual. Ex: `self.assertListEqual(response.data, [])`
+3. When testing Django REST Framework, what should be the super class of the test suite class?\
+Ans: APITestCase
+4. Which code for Cypress end-to-end for React, testing will navigate the browser to a particular URL?\
+Ans: `cy.visit('http://localhost:3000/path/to/page')`
+5. In Cypress e2e testing for React, which code will enter test into a form field?\
+Ans: `cy.get('input').type('hello')`
+6. When writing a unit test in React using testing-library and jest, which code will select this HTML element? `<div test-id="content"></div>`\
+Ans: `renderedComponent.queryByTestId('content')`
+7. When writing a unit test in React using testing-library and Jest which code will select a button that contains the text "Click Here"?\
+Ans: `renderedComponent.queryByText('Click Here')`
