@@ -185,3 +185,8 @@ Ans: `serializer_class = MySerializer`
 ### 5.2 Creating a higher order component with React
 1. Create FieldValidation.js, a higher order component
 2. Use it to create a new component in Checkout.js page
+
+### 5.3 Using React hooks and refactoring a component to use hooks
+1. We will use useState, useEffect hooks in OnHold.js component.
+2. **useState hook**: The new React hook that replaces setState and this.state = {}. And use `setVariablename` instead of `this.setState({ variablename })`.
+3. **useEffect hook**: New React hook that replaces `componentWillMount` and `componentWillUnmount`.

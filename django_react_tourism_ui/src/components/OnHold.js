@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './OnHold.css';
 
 export default function(props) {
-  const [remaining, setRemaining] = useState(props.duration);
+  const [remaining, setRemaining] = useState(props.duration); // useState instead of this.state = 
 
   useEffect(() => {
     const _timer = setTimeout(() => {
-      setRemaining(remaining - 1);
-    }, 1000);
+      setRemaining(remaining - 1); // setRemaining instead of this.setState
+    }, 1000); // no need to mention setInterval since the useEffect is called every time there is a state change. So it automatically keeps calling it.
     return function cleanup() {
       clearTimeout(_timer);
-    };
-  })
+    }; // called when component unmounts
+  }) // Replacement of componentDidMount() and componentWillUnmount
 
   if (remaining <= 1) {
     return null;
@@ -23,7 +23,7 @@ export default function(props) {
       next {remaining} seconds.
     </div>
   );
-}
+} // This function here is a replacement of the class shown below
 
 export class OnHold extends React.Component {
   constructor(props) {
