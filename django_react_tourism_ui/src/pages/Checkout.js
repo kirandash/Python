@@ -109,6 +109,7 @@ export default class Checkout extends React.Component {
           <h2>Checkout</h2>
         </header>
         <section className="Checkout-summary">
+          {item && <OnHold duration={59} />}
           {displayItem}
         </section>
         <section className="Checkout-form">

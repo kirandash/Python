@@ -28,18 +28,18 @@ export default function(props) {
 export class OnHold extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { remaining: props.duration };
+    this.state = { remaining: props.duration }; // Remaining time for checkokut timer
   }
 
   componentDidMount() {
     this._timer = setInterval(() => {
       const remaining = this.state.remaining - 1;
       this.setState({ remaining });
-    }, 1000);
+    }, 1000); // 1 sec timer
   }
 
   componentWillUnmount() {
-    clearInterval(this._timer);
+    clearInterval(this._timer); // reset timer on navigating to a different component
   }
 
   render() {
@@ -48,6 +48,7 @@ export class OnHold extends React.Component {
       return null;
     }
 
+    // Message to show whle the countdown is on 
     return (
       <div className="OnHold">
         Your tickets are on hold for the

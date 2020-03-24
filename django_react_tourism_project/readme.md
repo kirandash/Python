@@ -175,3 +175,9 @@ Ans: Contexts are used to share data and methods without having to pass them thr
 Ans: ``{ headers: { 'Authorization': `Bearer ${oauthToken}` } }``
 7. In Django REST Framework, how to set which serializer is used for a viewset?\
 Ans: `serializer_class = MySerializer`
+
+## 5. Refactoring React with Hooks and Higher-Order Components
+### 5.1 Using timers with state to display data
+1. When user is on checkout page, we will add some urgency that they should place order.
+2. Create timer on OnHold.js component
+3. Add OnHold component to Checkout.js page.
