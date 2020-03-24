@@ -43,20 +43,20 @@ afterEach(cleanup);
 
 it('can navigate between two components using routes', async () => {
   const app = render(<App />);
-  await wait();
-  expect(ServiceApi.retrieveList).toHaveBeenCalled();
+  await wait(); // wait for App to be fully rendered with mock json data before starting the test below
+  expect(ServiceApi.retrieveList).toHaveBeenCalled(); // make sure retrieveList API is called
   expect(app.queryByTestId('list')).toBeDefined();
   expect(app.queryByTestId('details')).toBeNull();
-  expect(app.queryAllByTestId('item')).toHaveLength(1);
+  expect(app.queryAllByTestId('item')).toHaveLength(1); // Make sure retrieveList content has loaded
 
-  fireEvent.click(app.getByText('Explore our tours'));
-  expect(ServiceApi.retrieveList).toHaveBeenCalled();
+  fireEvent.click(app.getByText('Explore our tours')); // fire click event
+  expect(ServiceApi.retrieveList).toHaveBeenCalled(); // Make sure API call is placed
   expect(app.queryByTestId('list')).toBeDefined();
   expect(app.queryByTestId('details')).toBeNull();
-  expect(app.queryAllByTestId('item')).toHaveLength(1);
+  expect(app.queryAllByTestId('item')).toHaveLength(1); // Make sure Explore our tours page content has loaded
 
-  fireEvent.click(app.getByText('Learn more!'));
-  expect(ServiceApi.retrieveDetails).toHaveBeenCalled();
+  fireEvent.click(app.getByText('Learn more!')); // navigate to details page
+  expect(ServiceApi.retrieveDetails).toHaveBeenCalled(); // check if retrieveDetails API is called
   expect(app.queryByTestId('list')).toBeNull();
-  expect(app.queryByTestId('details')).toBeDefined();
+  expect(app.queryByTestId('details')).toBeDefined(); // Make sure details pag econtent has loaded
 });

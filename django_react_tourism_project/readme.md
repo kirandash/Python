@@ -206,5 +206,18 @@ Ans: Higher order components in React are used to encapsulate reusable functinal
 
 ## 6. Testing React and Django
 ### 6.1 Unit testing a component
-1. Add test cases to Filters_test.js file
+1. Add test cases to src/components/Filters_test.js file
 2. Run `npm test`
+
+### 6.2 Unit testing two React routes and navigation between components
+1. Create mock data with jest.
+2. Add async test cases to App.test.js file.
+3. **@testing-library/react** utilities provide several useful fns:
+    - **render**: mounts a component into the DOM and renders it
+    - **fireEvent**: fires a click or input event on a DOM element
+    - **cleanup**: unmounts a rendered component, deleting it from the DOM after tests are run
+    - **wait**: asynchronous fn that waits until a component has been fully rendered
+4. **@testing-library/react** query types:
+    - **queryByTestId**: searches for DOM elements with the `data-testid` attribute
+    - **getByText**: Finds elements containing the given text, similar to queryByPlaceholder
+5. run `npm test`
