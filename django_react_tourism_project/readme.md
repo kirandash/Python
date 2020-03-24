@@ -190,3 +190,8 @@ Ans: `serializer_class = MySerializer`
 1. We will use useState, useEffect hooks in OnHold.js component.
 2. **useState hook**: The new React hook that replaces setState and this.state = {}. And use `setVariablename` instead of `this.setState({ variablename })`.
 3. **useEffect hook**: New React hook that replaces `componentWillMount` and `componentWillUnmount`.
+
+### 5.4 Refactoring a higher order component to use hooks
+1. we will useState hook in FieldValidation.js
+2. Implement useValidation hook from FieldValidation.js in FormField.js component. Call validate method and render ErrorDisplay component.
+3. In checkout page, use FormFieldUsingHooks instead of ValidatedFields.

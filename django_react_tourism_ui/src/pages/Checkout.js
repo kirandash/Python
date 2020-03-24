@@ -56,20 +56,9 @@ export default class Checkout extends React.Component {
     // });
 
     // Fields to show on Form
-    const formFields = inputFields.map((fieldProps) => {
-      return (
-        <ValidatedField
-          key={fieldProps.name}
-          value={booking[fieldProps.name]}
-          onUpdate={updateField}
-          {...fieldProps}
-        />
-      );
-    });
-
     // const formFields = inputFields.map((fieldProps) => {
     //   return (
-    //     <FormFieldUsingHooks
+    //     <ValidatedField
     //       key={fieldProps.name}
     //       value={booking[fieldProps.name]}
     //       onUpdate={updateField}
@@ -77,6 +66,17 @@ export default class Checkout extends React.Component {
     //     />
     //   );
     // });
+
+    const formFields = inputFields.map((fieldProps) => {
+      return (
+        <FormFieldUsingHooks
+          key={fieldProps.name}
+          value={booking[fieldProps.name]}
+          onUpdate={updateField}
+          {...fieldProps}
+        />
+      );
+    });
     
     // Check if order is placed
     if (orderPlaced) {

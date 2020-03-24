@@ -41,12 +41,12 @@ export function useValidation() {
     } else {
       setError(null);
     }
-  };
+  }; // Validate method
   const ErrorDisplay = () => {
     if (error) {
       return <div className="Error">{error}</div>;
     }
     return null;
-  }
-  return [ErrorDisplay, validate];
+  } // ErrorDisplay Component
+  return [ErrorDisplay, validate]; // fn will return ErrorDisplay component and Validate Method
 }
