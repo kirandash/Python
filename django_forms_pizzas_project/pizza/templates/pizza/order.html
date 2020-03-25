@@ -1,6 +1,9 @@
 <h1>Django Form</h1>
 
 <h2>{{ note }}</h2>
+{% if created_order_pk %}
+<a href="{% url 'edit_order' created_order_pk %}">Edit Your Order</a>
+{% endif %}
 
 <!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post"> -->
 <form action="{% url 'order' %}" method="post"><!-- default action is current url. Good practice to always mention even if it's default -->

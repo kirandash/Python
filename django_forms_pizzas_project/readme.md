@@ -82,3 +82,6 @@
 ### 2.9 Editing order Objects:
 1. Add url `path('order/<int:pk>', views.edit_order, name='edit_order'),`
 2. Create edit_order fn
+
+### 2.10 Input Confirmation:
+1. Create edit_order.html to hold the edit order form.

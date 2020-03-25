@@ -47,8 +47,10 @@ def edit_order(request, pk):
     order = Order.objects.get(pk=pk)
     form = OrderForm(instance=order)
     if request.method == 'POST':
-        filled_form = OrderForm(request.POST, isinstance=order)
+        filled_form = OrderForm(request.POST, instance=order)
         if filled_form.is_valid():
             filled_form.save()
             form = filled_form
-    return render(request, 'pizza/edit_order.html', {'orderform': form, 'order': order})
+            note = 'Order has been updated.'
+            return render(request, 'pizza/edit_order.html', {'note': note, 'orderform': form, 'order': order, })
+    return render(request, 'pizza/edit_order.html', {'orderform': form, 'order': order, })
