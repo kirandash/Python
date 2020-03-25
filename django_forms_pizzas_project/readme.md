@@ -22,3 +22,8 @@
 
 ### 1.3 Form fields - For order page
 1. Create form in order.html template
+
+### 1.4 Submitting Forms
+1. default action is current url. Good practice to always mention even if it's default.
+2. form method="get" or "post". Get request adds the form data to url on submission. while post method doesn't.
+3. For post method of submission, we will get an error 'CSRF verification failed. Request aborted.' To fix this add `{% csrf_token %}` to form.

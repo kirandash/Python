@@ -1,6 +1,7 @@
 <h1>Django Form</h1>
 
-<form>
+<form action="{% url 'order' %}" method="post"><!-- default action is current url. Good practice to always mention even if it's default -->
+    {% csrf_token %}
     <label for="item1">Item 1: </label><!-- The for tag is for accessibility -->
     <input id="item1" type="text" name="item1">
     <label for="item2">Item 2: </label><!-- The for tag is for accessibility -->
@@ -11,4 +12,5 @@
         <option value="Medium">Medium</option>
         <option value="Large">Large</option>
     </select>
+    <input type="submit" value="Submit Form">
 </form>
