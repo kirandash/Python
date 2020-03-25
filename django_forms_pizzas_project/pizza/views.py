@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from .forms import OrderForm
+from .forms import OrderForm, MultipleItemsForm
+from django.forms import formset_factory
 
 # Create your views here.
 def home(request):
     return render(request, 'pizza/home.html')
 
 def order(request):
+    multiple_form = MultipleItemsForm()
     if request.method == 'POST':
         # filled_form = OrderForm(request.POST, request.FILES)
         filled_form = OrderForm(request.POST) # create a form object with request.POST data
@@ -14,7 +16,24 @@ def order(request):
                     filled_form.cleaned_data['item1'],
                     filled_form.cleaned_data['item2'])
             new_form = OrderForm()
-            return render(request, 'pizza/order.html', {'orderform':new_form, 'note': note})
+            return render(request, 'pizza/order.html', {'orderform':new_form, 'note': note, 'multiple_form': multiple_form})
     else:
         form = OrderForm()
-        return render(request, 'pizza/order.html', {'orderform':form})
+        return render(request, 'pizza/order.html', {'orderform':form, 'multiple_form': multiple_form})
+
+def items(self):
+    number_of_items = 2
+    filled_multiple_items_form = MultipleItemsForm(request.GET)
+    if filled_multiple_items_form.is_valid():
+        number_of_items = filled_multiple_items_form.cleaned_data['number']
+    ItemFormSet = formset_factory(OrderForm, extra=number_of_items)
+    formset = ItemFormSet() # initially should be empty
+    if request.method == 'POST':
+        filled_formset = ItemFormSet(request.POST)
+        if filled_formset.is_valid():
+            for form in filled_formset:
+                print(form.cleaned_data['item1'])
+            note = 'Items have been ordered'
+        else:
+            note = 'Order was not created, please try again'
+        return render(request, 'pizza/pizzas.html', {'note': note, 'formset': formset})

@@ -21,3 +21,6 @@ class OrderForm(forms.ModelForm):
         fields = ['item1', 'item2', 'size'] # should match the field names defined for class Order in models.py file
         labels = {'item1': 'Item One', 'item2': 'Item Two' } # Adding custom labels to model fields
         # widgets = {'item1': forms.Textarea, 'size': forms.CheckboxSelectMultiple}
+
+class MultipleItemsForm(forms.Form):
+    number = forms.IntegerField(min_value=2, max_value=6)

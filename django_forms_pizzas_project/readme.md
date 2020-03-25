@@ -68,3 +68,9 @@
 2. `pip3 install pillow` to be able to work with images
 3. Add image field to OrderForm class in forms.py file: `image = forms.ImageField()`
 4. To be able to accept files in view: get `request.FILES` from OrderForm in views.py file
+
+### 2.6 Formsets: Multiple forms on a page
+1. Formsets allows us to take one form and repeat over and over
+
+### 2.7 Formset Views
+1. Add items view to views.py file.
