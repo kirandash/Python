@@ -44,7 +44,7 @@ Start Project:
 2. Within django, an app is a component
 3. Each app fits a specific purpose. Eg: Blog / Forum / Wiki
 4. `cd django_101_pets`: folder with manage.py file. Since manage.py has all commands.
-5. `python3 manage.py startapp adoptions`: will create a django app
+5. `python3 manage.py startapp adoptions`: will create a django app or `django-admin startapp adoptions`
 6. Add the created app to project. Go to django_101/settings.py file ---> INSTALLED_APPS ---> Add `adoptions` to the end of preinstalled django apps. 
 
 App Folder Structure:

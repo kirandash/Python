@@ -9,3 +9,9 @@
 5. Create a django project: `django-admin startproject django_forms_pizzas` This will create the project.
 6. Rename to root project name to 'django_forms_pizzas_project' to avoid confusion with the app name 'django_forms_pizza'
 7. `cd django_forms_pizzas_project` and Run server: `python3 manage.py runserver`
+8. Project will run at: http://localhost:8000/
+
+### 1.2 Making Forms from scratch - Create App and add URLs
+1. Create a django app called pizza: `django-admin startapp pizza`.
+2. Add app name to INSTALLED_APPS array in settings.py file.
+3. Add urls to home page and order page to urlpatterns in urls.py file. `path('', views.home, name='home'), path('order', views.order, name='order')`
