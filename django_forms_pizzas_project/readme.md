@@ -59,3 +59,6 @@
 ### 2.3 Widgets
 1. `widget = forms.Textarea` and `widget = forms.PasswordInput` Ex: `item1 = forms.CharField(label='Item 1', max_length=100, widget = forms.Textarea)`
 2. Multiple selection widget: `items = forms.MultipleChoiceField(choices=[('i1', 'Item1'), ('i2', 'Item2'), ('i3', 'Items3')], widget=forms.CheckboxSelectMultiple)`
+
+### 2.4 Advanced Widgets
+1. We can also use widgets with ModelForm class in pizza/forms.py file.
