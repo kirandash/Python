@@ -27,3 +27,9 @@
 1. default action is current url. Good practice to always mention even if it's default.
 2. form method="get" or "post". Get request adds the form data to url on submission. while post method doesn't.
 3. For post method of submission, we will get an error 'CSRF verification failed. Request aborted.' To fix this add `{% csrf_token %}` to form.
+
+### 1.5 Django Form Class
+1. Django Form class helps us building forms in a much easier way than the manual html way of building it.
+2. create pizza/forms.py and add Form class to it.
+3. Code: `item2 = forms.CharField(label='Item 2', max_length=100) size = forms.ChoiceField(label='Size', choices=[('Small Size', 'Small'), ('Medium Size'), ('Large Size')])`
+4. pass form class to order.html template from views.py ex: `return render(request, 'pizza/order.html', {'orderform', form})`
