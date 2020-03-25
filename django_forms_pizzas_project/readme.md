@@ -37,3 +37,16 @@
 ### 1.6 Using Submitted a Data
 1. Handle GET and POST method differently on views.py
 2. Send note from views.py to order.html and display on template
+
+## 2. Advanced Form Features
+### 2.1 Adding Models
+1. Data from form will now be stored in db. For that we will need to create the models.
+2. Define the models in pizza/models.py page.
+3. Register the new classes to show on admin page by adding `admin.site.register(Order)` on pizza/admin.py file
+4. Since we have done model changes - let's run migrate commands.
+5. `python3 manage.py makemigrations`
+6. `python3 manage.py showmigrations` to see the list of migrations available. [ ] prefix means the migration is not applied.
+7. To apply run: `python3 manage.py migrate`
+8. `python3 manage.py showmigrations` to see the list of migrations available. [X] prefix means the migrations are applied.
+9. Create a superuser to access admin: `python3 manage.py createsuperuser` username: kiran password: mycommonpwd
+10. Go to admin: http://localhost:8000/admin/ and add sizes. Since sizes should be added by admin: http://localhost:8000/admin/pizza/size/add/. Once added all sizes can be seen at: http://localhost:8000/admin/pizza/size/. Note that size info is properly shown at http://localhost:8000/admin/pizza/size/ because of the `def __str__(self): return self.title` code we added to the models.py file.
