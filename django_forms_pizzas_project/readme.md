@@ -33,3 +33,7 @@
 2. create pizza/forms.py and add Form class to it.
 3. Code: `item2 = forms.CharField(label='Item 2', max_length=100) size = forms.ChoiceField(label='Size', choices=[('Small Size', 'Small'), ('Medium Size'), ('Large Size')])`
 4. pass form class to order.html template from views.py ex: `return render(request, 'pizza/order.html', {'orderform', form})`
+
+### 1.6 Using Submitted a Data
+1. Handle GET and POST method differently on views.py
+2. Send note from views.py to order.html and display on template
