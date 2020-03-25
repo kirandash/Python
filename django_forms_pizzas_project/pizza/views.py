@@ -7,6 +7,7 @@ def home(request):
 
 def order(request):
     if request.method == 'POST':
+        # filled_form = OrderForm(request.POST, request.FILES)
         filled_form = OrderForm(request.POST) # create a form object with request.POST data
         if filled_form.is_valid():
             note = 'Thanks for ordering! Your delivery for %s %s and %s is on its way' %(filled_form.cleaned_data['size'], 

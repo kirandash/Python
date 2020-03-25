@@ -2,6 +2,7 @@
 
 <h2>{{ note }}</h2>
 
+<!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post"> -->
 <form action="{% url 'order' %}" method="post"><!-- default action is current url. Good practice to always mention even if it's default -->
     {% csrf_token %}
     {{ orderform }}

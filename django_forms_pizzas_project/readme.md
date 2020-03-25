@@ -62,3 +62,9 @@
 
 ### 2.4 Advanced Widgets
 1. We can also use widgets with ModelForm class in pizza/forms.py file.
+
+### 2.5 Forms & Files
+1. Add `enctype="multipart/form-data"` to form in order.html for form to accept files
+2. `pip3 install pillow` to be able to work with images
+3. Add image field to OrderForm class in forms.py file: `image = forms.ImageField()`
+4. To be able to accept files in view: get `request.FILES` from OrderForm in views.py file

@@ -12,7 +12,9 @@ from .models import Order, Size
 class OrderForm(forms.ModelForm):
 
     # size = forms.ModelChoiceField(queryset=Size.objects, empty_label=None, widget=forms.CheckboxSelectMultiple)
-    size = forms.ModelChoiceField(queryset=Size.objects, empty_label=None, widget=forms.RadioSelect) # Another way of adding widget
+    # size = forms.ModelChoiceField(queryset=Size.objects, empty_label=None, widget=forms.RadioSelect) # Another way of adding widget
+
+    # image = forms.ImageField()
 
     class Meta:
         model = Order
