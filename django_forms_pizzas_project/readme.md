@@ -19,3 +19,6 @@
 ### 1.2 Making Forms from scratch - Add views to the App
 1. Create views for home and order page in pizza/views.py
 2. Create templates at pizza/templates/pizza
+
+### 1.3 Form fields - For order page
+1. Create form in order.html template
