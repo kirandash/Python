@@ -74,3 +74,7 @@
 
 ### 2.7 Formset Views
 1. Add items view to views.py file.
+
+### 2.8 Controlling the number of formsets
+1. Create the form we have to show while ordering multiple items
+2. Also to save our data from form add: `filled_form.save()`. can be verified in admin

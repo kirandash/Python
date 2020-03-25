@@ -12,6 +12,7 @@ def order(request):
         # filled_form = OrderForm(request.POST, request.FILES)
         filled_form = OrderForm(request.POST) # create a form object with request.POST data
         if filled_form.is_valid():
+            filled_form.save() # to save the submitted data in DB, can be verified in admin
             note = 'Thanks for ordering! Your delivery for %s %s and %s is on its way' %(filled_form.cleaned_data['size'], 
                     filled_form.cleaned_data['item1'],
                     filled_form.cleaned_data['item2'])
@@ -21,7 +22,7 @@ def order(request):
         form = OrderForm()
         return render(request, 'pizza/order.html', {'orderform':form, 'multiple_form': multiple_form})
 
-def items(self):
+def items(request):
     number_of_items = 2
     filled_multiple_items_form = MultipleItemsForm(request.GET)
     if filled_multiple_items_form.is_valid():
@@ -32,8 +33,10 @@ def items(self):
         filled_formset = ItemFormSet(request.POST)
         if filled_formset.is_valid():
             for form in filled_formset:
-                print(form.cleaned_data['item1'])
+                print(form.cleaned_data['item1']) # logging output on terminal for testing
             note = 'Items have been ordered'
         else:
             note = 'Order was not created, please try again'
         return render(request, 'pizza/pizzas.html', {'note': note, 'formset': formset})
+    else: # GET
+        return render(request, 'pizza/pizzas.html', {'formset': formset})
