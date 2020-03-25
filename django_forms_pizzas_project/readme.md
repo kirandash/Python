@@ -50,3 +50,8 @@
 8. `python3 manage.py showmigrations` to see the list of migrations available. [X] prefix means the migrations are applied.
 9. Create a superuser to access admin: `python3 manage.py createsuperuser` username: kiran password: mycommonpwd
 10. Go to admin: http://localhost:8000/admin/ and add sizes. Since sizes should be added by admin: http://localhost:8000/admin/pizza/size/add/. Once added all sizes can be seen at: http://localhost:8000/admin/pizza/size/. Note that size info is properly shown at http://localhost:8000/admin/pizza/size/ because of the `def __str__(self): return self.title` code we added to the models.py file.
+
+### 2.2 Model Forms
+1. Once the model is available, we can use the same model to create multiple forms. By saving time.
+2. Let's replace the Django Form Class in forms.py with Django Model Form class
+3. And create a subclass called Meta which will hold all our form meta info like model, fields, labels
