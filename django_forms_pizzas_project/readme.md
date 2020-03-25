@@ -15,3 +15,7 @@
 1. Create a django app called pizza: `django-admin startapp pizza`.
 2. Add app name to INSTALLED_APPS array in settings.py file.
 3. Add urls to home page and order page to urlpatterns in urls.py file. `path('', views.home, name='home'), path('order', views.order, name='order')`
+
+### 1.2 Making Forms from scratch - Add views to the App
+1. Create views for home and order page in pizza/views.py
+2. Create templates at pizza/templates/pizza
