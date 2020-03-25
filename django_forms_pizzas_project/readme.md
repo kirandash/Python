@@ -55,3 +55,7 @@
 1. Once the model is available, we can use the same model to create multiple forms. By saving time.
 2. Let's replace the Django Form Class in forms.py with Django Model Form class
 3. And create a subclass called Meta which will hold all our form meta info like model, fields, labels
+
+### 2.3 Widgets
+1. `widget = forms.Textarea` and `widget = forms.PasswordInput` Ex: `item1 = forms.CharField(label='Item 1', max_length=100, widget = forms.Textarea)`
+2. Multiple selection widget: `items = forms.MultipleChoiceField(choices=[('i1', 'Item1'), ('i2', 'Item2'), ('i3', 'Items3')], widget=forms.CheckboxSelectMultiple)`
