@@ -102,3 +102,8 @@ Ans: ModelForm helps us to create forms from our existing models.
 
 ### 3.2 Server based erros
 1. Add server based validation in views.py.
+
+### 3.3 Form Rendering - as_p
+1. `as_p` displays form tags with paragraph ex: `{{ orderform.as_p }}`
+2. `as_table`: surround with `<table>` tag
+3. `as_ul`: surround with `ul` tag or `ol` tag

@@ -8,6 +8,7 @@
 <!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post" novalidate> -->
 <form action="{% url 'order' %}" method="post" novalidate><!-- default action is current url. Good practice to always mention even if it's default -->
     {% csrf_token %}
+    <!-- {{ orderform.as_p }} -->
     {{ orderform }}
     <!--<label for="item1">Item 1: </label> The for tag is for accessibility 
     <input id="item1" type="text" name="item1">
