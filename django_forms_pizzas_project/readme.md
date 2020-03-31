@@ -107,3 +107,6 @@ Ans: ModelForm helps us to create forms from our existing models.
 1. `as_p` displays form tags with paragraph ex: `{{ orderform.as_p }}`
 2. `as_table`: surround with `<table>` tag
 3. `as_ul`: surround with `ul` tag or `ol` tag
+
+### 3.4 Customizing Forms
+1. We can customize individual fields Ex: `{{ orderform.item1.errors }} {{ orderform.item1.label_tag }} {{ orderform.item1 }}`

@@ -6,10 +6,24 @@
 {% endif %}
 
 <!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post" novalidate> -->
-<form action="{% url 'order' %}" method="post" novalidate><!-- default action is current url. Good practice to always mention even if it's default -->
+<form action="{% url 'order' %}" method="post"><!-- default action is current url. Good practice to always mention even if it's default -->
     {% csrf_token %}
     <!-- {{ orderform.as_p }} -->
     {{ orderform }}
+    <!-- {{ orderform.item1.errors }}
+    {{ orderform.item1.label_tag }}
+    {{ orderform.item1 }}
+
+    {{ orderform.item2.errors }}
+    {{ orderform.item2.label_tag }}
+    {{ orderform.item2 }}
+    <br/><br/><br/><br/>
+    {{ orderform.size.errors }}
+    <label for="{{ orderform.size.id_for_label }}">
+        Size for item:
+    </label>
+    {{ orderform.size }} -->
+
     <!--<label for="item1">Item 1: </label> The for tag is for accessibility 
     <input id="item1" type="text" name="item1">
     <label for="item2">Item 2: </label> The for tag is for accessibility 
