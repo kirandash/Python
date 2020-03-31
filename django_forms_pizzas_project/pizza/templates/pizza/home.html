@@ -1,2 +1,7 @@
-<h1>Django Forms</h1>
-<a href="{% url 'order' %}">Order</a>
+{% extends 'pizza/base.html' %}
+{% block 'body' %}
+<div class="text-center">
+    {% load static %}
+    <img src="{% static 'django_logo.jpeg' %}" class="img-fluid" alt="Alternate text">
+</div>
+{% endblock %}

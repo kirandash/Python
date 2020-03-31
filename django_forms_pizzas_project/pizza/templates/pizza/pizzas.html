@@ -1,12 +1,17 @@
-<h1>Order Items</h1>
-<h2>{{ note }}</h2>
-
-<form action="{% url 'items' %}" method="post">
-    {% csrf_token %}
-    {{ formset.management_form }}
-    {% for form in formset %}
-    {{ form }}
-    <br/><br/>
-    {% endfor %}
-    <input type="submit" value="Order items">
-</form>
+{% extends 'pizza/base.html' %}
+{% block 'body' %}
+<div class="container">
+    <h1>Order Items</h1>
+    <h2>{{ note }}</h2>
+    
+    <form action="{% url 'items' %}" method="post">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        {% for form in formset %}
+        {{ form }}
+        <br/><br/>
+        {% endfor %}
+        <input type="submit" value="Order items">
+    </form>
+</div>
+{% endblock %}

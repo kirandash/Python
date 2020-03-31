@@ -123,3 +123,17 @@ Ans: ModelForm helps us to create forms from our existing models.
 1. navigation: `href="{% url 'home' %}"`
 2. create base.html file with block: `{% block 'body' %} {% endblock %}`
 3. extend order.html from base.html file: `{% extends 'pizza/base.html' %} {% block 'body' %} {% endblock %}`
+
+### 3.7 Styling Home page and extending other pages from base.html
+1. Extend home.html from base.html
+2. For images: add static root to settings.py file: `STATIC_ROOT = os.path.join(BASE_DIR, 'static')`
+3. Add image to pizza/static folder
+4. Every time there is a new image or file added we have to run collectstatic command: `python3 manage.py collectstatic`. It will collect all the files from all the static folders in our apps and collectively put them in one place - a root level static folder. Note that it will add our image + static content from admin as well which comes by default.
+5. use `{% load static %}` in home.html page to load static files.
+6. extend pizzas.html from base.html and edit_order.html page
+
+### 3.8 Module 3 - Quiz
+1. How to show errors for one field in a form?\
+Ans: `form.field.error`
+2. How to display form in paragraph tags?\
+Ans: `.as_p`
