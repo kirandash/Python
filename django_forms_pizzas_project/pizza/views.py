@@ -18,8 +18,13 @@ def order(request):
             note = 'Thanks for ordering! Your delivery for %s %s and %s is on its way' %(filled_form.cleaned_data['size'], 
                     filled_form.cleaned_data['item1'],
                     filled_form.cleaned_data['item2'])
-            new_form = OrderForm()
-            return render(request, 'pizza/order.html', {'created_order_pk': created_order_pk, 'orderform':new_form, 'note': note, 'multiple_form': multiple_form})
+            # new_form = OrderForm()
+            filled_form = OrderForm() # on successfully placing order, we are clearing out the filled form so that a new order can be created
+        else:
+            created_order_pk = None
+            note = 'Pizza order has failed. Try again'
+        return render(request, 'pizza/order.html', {'created_order_pk': created_order_pk, 'orderform':filled_form, 'note': note, 'multiple_form': multiple_form})
+            # return render(request, 'pizza/order.html', {'created_order_pk': created_order_pk, 'orderform':new_form, 'note': note, 'multiple_form': multiple_form})
     else:
         form = OrderForm()
         return render(request, 'pizza/order.html', {'orderform':form, 'multiple_form': multiple_form})

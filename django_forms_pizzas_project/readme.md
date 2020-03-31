@@ -98,4 +98,7 @@ Ans: ModelForm helps us to create forms from our existing models.
 ### 3.1 Local validation and errors:
 1. So far the validations are only at browser level. But not server level.
 2. Note that the fields are required by default and adds additional validations as per field type viz email, url etc
-3. To avoid default html validation, use `novalidate` with form tag.
+3. To avoid default html validation, use `novalidate` with form tag in order.html page.
+
+### 3.2 Server based erros
+1. Add server based validation in views.py.
