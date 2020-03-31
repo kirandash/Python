@@ -118,3 +118,8 @@ Ans: ModelForm helps us to create forms from our existing models.
 4. use template in order.html page
 5. load widgets app in order.html `{% load widget_tweaks %}`
 6. We can add custom class to fields with widget tweaks: `{% render_field field class="form-control" %}`
+
+### 3.6 Creating Base HTML and Extend order HTML from it
+1. navigation: `href="{% url 'home' %}"`
+2. create base.html file with block: `{% block 'body' %} {% endblock %}`
+3. extend order.html from base.html file: `{% extends 'pizza/base.html' %} {% block 'body' %} {% endblock %}`
