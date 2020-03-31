@@ -1,47 +1,81 @@
-<h1>Django Form</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<h2>{{ note }}</h2>
-{% if created_order_pk %}
-<a href="{% url 'edit_order' created_order_pk %}">Edit Your Order</a>
-{% endif %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-<!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post" novalidate> -->
-<form action="{% url 'order' %}" method="post"><!-- default action is current url. Good practice to always mention even if it's default -->
-    {% csrf_token %}
-    <!-- {{ orderform.as_p }} -->
-    {{ orderform }}
-    <!-- {{ orderform.item1.errors }}
-    {{ orderform.item1.label_tag }}
-    {{ orderform.item1 }}
+    <title>Django Form</title>
+  </head>
+  <body>
+    {% load widget_tweaks %}
+    <div class="container">
 
-    {{ orderform.item2.errors }}
-    {{ orderform.item2.label_tag }}
-    {{ orderform.item2 }}
-    <br/><br/><br/><br/>
-    {{ orderform.size.errors }}
-    <label for="{{ orderform.size.id_for_label }}">
-        Size for item:
-    </label>
-    {{ orderform.size }} -->
+    
+        <h1>Django Form</h1>
 
-    <!--<label for="item1">Item 1: </label> The for tag is for accessibility 
-    <input id="item1" type="text" name="item1">
-    <label for="item2">Item 2: </label> The for tag is for accessibility 
-    <input id="item2" type="text" name="item2">
-    <label for="size">Size </label> The for tag is for accessibility 
-    <select id="size" name="size">
-        <option value="Small">Small</option>
-        <option value="Medium">Medium</option>
-        <option value="Large">Large</option>
-    </select>-->
-    <input type="submit" value="Submit Form">
-</form>
+        <h2>{{ note }}</h2>
+        {% if created_order_pk %}
+        <a href="{% url 'edit_order' created_order_pk %}">Edit Your Order</a>
+        {% endif %}
 
-<br/><br/>
+        <!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post" novalidate> -->
+        <form action="{% url 'order' %}" method="post"><!-- default action is current url. Good practice to always mention even if it's default -->
+            {% csrf_token %}
+            <!-- {{ orderform.as_p }} -->
+            <!-- {{ orderform }} -->
+            {% for field in orderform %}
+            <div class="form-group">
+            {{ field.errors }}
+            {{ field.label_tag }}
+            {% render_field field class="form-control" %} <!-- Adding custom class with help of widget_tweaks -->
+            </div>
+            {% endfor %}
+            <!-- {{ orderform.item1.errors }}
+            {{ orderform.item1.label_tag }}
+            {{ orderform.item1 }}
 
-Want more than one items?
+            {{ orderform.item2.errors }}
+            {{ orderform.item2.label_tag }}
+            {{ orderform.item2 }}
+            <br/><br/><br/><br/>
+            {{ orderform.size.errors }}
+            <label for="{{ orderform.size.id_for_label }}">
+                Size for item:
+            </label>
+            {{ orderform.size }} -->
 
-<form action="{% url 'items' %}" method="get">
-    {{ multiple_form }}
-    <input type="submit" value="Get Items">
-</form>
+            <!--<label for="item1">Item 1: </label> The for tag is for accessibility 
+            <input id="item1" type="text" name="item1">
+            <label for="item2">Item 2: </label> The for tag is for accessibility 
+            <input id="item2" type="text" name="item2">
+            <label for="size">Size </label> The for tag is for accessibility 
+            <select id="size" name="size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>-->
+            <input type="submit" value="Submit Form">
+        </form>
+
+        <br/><br/>
+
+        Want more than one items?
+
+        <form action="{% url 'items' %}" method="get">
+            {{ multiple_form }}
+            <input type="submit" value="Get Items">
+        </form>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

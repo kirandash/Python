@@ -110,3 +110,11 @@ Ans: ModelForm helps us to create forms from our existing models.
 
 ### 3.4 Customizing Forms
 1. We can customize individual fields Ex: `{{ orderform.item1.errors }} {{ orderform.item1.label_tag }} {{ orderform.item1 }}`
+
+### 3.5 Forms with CSS - django-widget-tweaks
+1. Will use bootstrap
+2. `pip3 install django-widget-tweaks`, add `widget_tweaks` to settings.py apps list
+3. getbootstrap.com - docs - starter template
+4. use template in order.html page
+5. load widgets app in order.html `{% load widget_tweaks %}`
+6. We can add custom class to fields with widget tweaks: `{% render_field field class="form-control" %}`
