@@ -5,7 +5,7 @@
 <a href="{% url 'edit_order' created_order_pk %}">Edit Your Order</a>
 {% endif %}
 
-<!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post"> -->
+<!-- <form enctype="multipart/form-data" action="{% url 'order' %}" method="post" novalidate> -->
 <form action="{% url 'order' %}" method="post"><!-- default action is current url. Good practice to always mention even if it's default -->
     {% csrf_token %}
     {{ orderform }}

@@ -8,7 +8,7 @@
 4. Install django: `pip3 install django`
 5. Create a django project: `django-admin startproject django_forms_pizzas` This will create the project.
 6. Rename to root project name to 'django_forms_pizzas_project' to avoid confusion with the app name 'django_forms_pizza'
-7. `cd django_forms_pizzas_project` and Run server: `python3 manage.py runserver`
+7. `cd django_forms_pizzas_project` and Run server: `python3 manage.py runserver`. Note: we can specify port number as: `python3 manage.py runserver 8080`
 8. Project will run at: http://localhost:8000/
 
 ### 1.2 Making Forms from scratch - Create App and add URLs
@@ -85,3 +85,17 @@
 
 ### 2.10 Input Confirmation:
 1. Create edit_order.html to hold the edit order form.
+
+### 2.11 Module 2 Quiz
+1. Why Formsets?\
+Ans: Formsets allows us to take one form and repeat over and over
+2. In order to accept files in a form, what must you add to the form?\
+Ans: `enctype="multipart/form-data"`
+3. ModelForm?\
+Ans: ModelForm helps us to create forms from our existing models.
+
+## 3. Customizing and Styling Form Appearance
+### 3.1 Local validation and errors:
+1. So far the validations are only at browser level. But not server level.
+2. Note that the fields are required by default and adds additional validations as per field type viz email, url etc
+3. To avoid default html validation, use `novalidate` with form tag.

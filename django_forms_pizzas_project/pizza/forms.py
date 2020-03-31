@@ -14,7 +14,10 @@ class OrderForm(forms.ModelForm):
     # size = forms.ModelChoiceField(queryset=Size.objects, empty_label=None, widget=forms.CheckboxSelectMultiple)
     # size = forms.ModelChoiceField(queryset=Size.objects, empty_label=None, widget=forms.RadioSelect) # Another way of adding widget
 
-    # image = forms.ImageField()
+    # image = forms.ImageField() // Adds image field to the form
+
+    # email = forms.EmailField() // Adds email field to the form
+    # url = forms.URLField() // Adds url field to the form
 
     class Meta:
         model = Order
