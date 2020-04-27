@@ -37,3 +37,9 @@
 5. **django_basics_dogs/urls.py**:
     - Routes web requests based on URL
 6. We will edit only the settings.py and urls.py file in this course.
+
+### 1.5 Run Djanog Project
+1. cd into project folder with manage.py file
+2. `python3 manage.py runserver`
+3. Server will start at http://127.0.0.1:8000/.
+4. Also creates a db.sqlite3 file which will hold all our data.
