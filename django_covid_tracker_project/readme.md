@@ -68,3 +68,51 @@
 
 ### 1.8 Adding COVID Tracker UI to Workspace
 1. The UI code is previously built at: https://github.com/kirandash/react/tree/master/covid-tracker. We will integrate our API on top of that later.
+
+## 2. Django Models and the Admin
+### 2.1 Models, routing, view and template
+1. Django uses MVC architecture. (Model, View, Controller) Or MRVT. (Model, Route, View, Controller)
+2. **MVC Architecture - Flow**:
+    - URL Patterns ---> (Views --- Models) ---> Templates
+3. In our project, we will use django only for creating Model and API. For view and URL routings, we will use React.
+
+### 2.2 Models
+1. Django Models helps us: 
+    - Create the data layer of the Django App.
+    - Define database structure.
+    - Allows us to query the database.
+4. **Model**: A model is a class inheriting from `django.db.models.Model` and it defines database fields as class attributes.
+5. Our requirement: Countries with a name, country code, and other details.
+6. Allow administrators to create, edit or delete countries.
+7. Allow users to see a list of available dogs, with details about each one.
+8. **countries/models.py** file: This contains the set of models for the django app.
+
+### 2.3 Django Fields
+1. Each model can have multiple fields.
+    - Ex: Dog Model will have the fields: name, submitter, submission_date, description etc.
+2. **Field Types: Textual Data**: 
+    - CharField
+    - TextField
+    - EmailField
+    - URLField
+3. **Field Types: Numeric Data**:
+    - IntegerField : -1, 0, 20 etc
+    - DecimalField
+4. **Field Types: Decimal Data**:
+    - BooleanField
+    - DateTimeField : Date and Time combination
+5. **Field Types: Relational Data**: For relationships b/w multiple models
+    - ForeignKey: 1 (id of record in another table) Ex: model of user and model of songs. Model of user can contain a foreign key of song id to keep track of user's favorite song.
+    - ManyToManyField: NA Ex: Vaccinations for dog. Many dogs can have one vaccination and lly many vaccinations for one dog.
+6. Code Example: `model.CharField(max_length=10, blank=True)`
+7. **Field Attribute Options**:
+    - max_length
+    - null (can have null or not)
+    - blank (required or not)
+    - choices (ex: Sex: Male or Female)
+    - Read more at: https://docs.djangoproject.com/en/3.0/ref/models/fields/
+
+### 2.4 Implement Country Model and add Fields
+1. Open countries/models.py file. `from django.db import models`
+2. Create a model Country(), a class inherited from django.models. `class Country(models.Model):`
+3. Add country code and pinned Field to the model. Remaining data will be retrieved from API.
