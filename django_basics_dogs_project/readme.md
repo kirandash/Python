@@ -43,3 +43,23 @@
 2. `python3 manage.py runserver`
 3. Server will start at http://127.0.0.1:8000/.
 4. Also creates a db.sqlite3 file which will hold all our data.
+
+### 1.6 Create a Django App
+1. **Django Apps**:
+    - A component in a Django Project
+    - A folder with a set of Python files
+    - Each app fits a specific purpose
+    - Example: Blog, Forum, Wiki, In our project: adoptions (Single app)
+2. Move to manage.py folder
+3. `python3 manage.py startapp adoptions`
+4. will create adoptions folder: with few files and a migrations folder.
+5. Add adoptions app to list of installed apps. django_basics_dogs/settings.py file: INSTALLED_APPS list.
+
+### 1.7 Understanding Django App Folder structure
+1. **migrations/**: holds files to help us with migrate our DB when we change our schema over time. Or move code to different environment.
+2. **__init__.py**: (Dunder Init file) - Tells Python that this folder contains Python files
+3. **admin.py**: controls admin interface that can be used to edit data related to this app.
+4. **apps.py**: controls settings specific to this app.**urls.py**: For url routing specific to this app.
+5. **models.py**: provides the data layer which Django uses to create DB schema or queries.
+6. **tests.py**: Can add unit test for testing this app.
+7. **views.py**: Holds logic and control flow for handling requests and defines HTTP response that can be returned.
