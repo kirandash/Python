@@ -151,3 +151,6 @@
 2. Create a superuser to work with db: `python3 manage.py createsuperuser` - username: kiran, pwd: common
 3. Run server: `python3 manage.py runserver`
 4. Server is available at: http://127.0.0.1:8000/admin/
+
+### 2.7 Django list_display
+1. By default the server will be showing list details of countries as Country object. We can control that with **list_display** attribute for model.
