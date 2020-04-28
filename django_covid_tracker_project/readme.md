@@ -147,10 +147,26 @@
 10. Expand table countries_country to see all the fields we added to our db. code, pinned. By default id is added which is the unique key for our data.
 
 ### 2.6 Django Admin
-1. open countries/admin.py file. create a CountryAdmin class - and add pass as content for making CountryAdmin a valid Python class, if there is no other code.
+1. open countries/admin.py file. create a CountryAdmin class by extending admin.ModelAdmin class - and add pass as content for making CountryAdmin a valid Python class, if there is no other code.
 2. Create a superuser to work with db: `python3 manage.py createsuperuser` - username: kiran, pwd: common
 3. Run server: `python3 manage.py runserver`
 4. Server is available at: http://127.0.0.1:8000/admin/
 
 ### 2.7 Django list_display
 1. By default the server will be showing list details of countries as Country object. We can control that with **list_display** attribute for model.
+
+### 2.8 Query data with the Django ORM using shell
+1. `python3 manage.py shell`: interactive python shell with django initialized
+2. Press **ctrl + L** to clear screen in shell
+3. `from countries.models import Country`
+4. `Country.objects.all()`: returns all instances of the Country object model
+5. `countries = Country.objects.all()`: to store it in a variable for continuous use
+6. `country = countries[0]`
+7. `country.code` or `country.pinned` or `country.id` etc
+8. ctrl + l
+9. `country = Country.objects.get(id=1)` is same as above for selecting the first Country
+10. `country = Country.objects.get(id=2)` to select a different Country
+11. `country = Country.objects.get(code='IN')` to select based on country code
+11. `country = Country.objects.get(pinned=1)` exception: multiple results. multiple countries found (our code must take care of this exception)
+12. `country = Country.objects.get(id=5555)` exception: Country does not exist (our code must take care of this exception)
+13. `exit()`: to exit from shell
