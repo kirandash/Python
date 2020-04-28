@@ -41,7 +41,7 @@
 6. We will edit only the settings.py: to configure django and urls.py file to manage routes requests based on URL in this project.
 7. Will Not Edit: manage.py, __init__.py, wsgi.py
 
-### 1.5 Run Djanog Project
+### 1.5 Run Django Project
 1. `cd django_101_pets`: folder with manage.py file. Since manage.py has all commands.
 2. `python3 manage.py runserver` to run the project on local server. Ignore the warning about unapplied migrations. Note that this will also create a db.sqlite3 file, a local db file that django will use for running server.
 3. Project will launch at http://127.0.0.1:8000/
