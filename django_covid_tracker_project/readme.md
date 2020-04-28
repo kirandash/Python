@@ -65,3 +65,6 @@
 5. **models.py**: provides the data layer which Django uses to create DB schema or queries.
 6. **tests.py**: Can add unit test for testing this app.
 7. **views.py**: Holds logic and control flow for handling requests and defines HTTP response that can be returned.
+
+### 1.8 Adding COVID Tracker UI to Workspace
+1. The UI code is previously built at: https://github.com/kirandash/react/tree/master/covid-tracker. We will integrate our API on top of that later.

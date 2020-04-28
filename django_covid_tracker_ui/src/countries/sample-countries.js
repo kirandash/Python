@@ -1,0 +1,37 @@
+// Sample data from 12th April 2020 report
+export const sampleCountries = [
+    {
+        "info":{
+            "ourid":177,
+            "title":"Singapore",
+            "code":"SG",
+            "source":"https://thevirustracker.com/singapore-coronavirus-information-sg"
+        },
+        "total_cases":2299,
+        "total_recovered":528,
+        "total_unresolved":0,
+        "total_deaths":8,
+        "total_new_cases_today":0,
+        "total_new_deaths_today":0,
+        "total_active_cases":1763,
+        "total_serious_cases":31,
+        "total_danger_rank":50
+    },
+    {
+        "info":{
+           "ourid":167,
+           "title":"USA",
+           "code":"US",
+           "source":"https://thevirustracker.com/usa-coronavirus-information-us"
+        },
+        "total_cases":533115,
+        "total_recovered":30502,
+        "total_unresolved":0,
+        "total_deaths":20580,
+        "total_new_cases_today":236,
+        "total_new_deaths_today":3,
+        "total_active_cases":482033,
+        "total_serious_cases":11471,
+        "total_danger_rank":1
+    }
+]

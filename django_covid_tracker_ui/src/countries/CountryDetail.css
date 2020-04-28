@@ -1,0 +1,32 @@
+.country-wrapper {
+    background: #212121;
+    color: white;
+    margin-top: 1rem;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 0px 2px white;
+}
+
+.buttons-wrapper {
+    margin-top: 1rem;
+}
+
+button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.pin-button {
+    display: inline-block;
+    background-color: #73b2ff;
+}
+
+.remove-button {
+    display: inline-block;
+    background-color: #e60000;
+    margin-left: 8px;
+}

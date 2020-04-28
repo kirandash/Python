@@ -1,0 +1,27 @@
+.search-country-form {
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0px 2px white;
+    background: #212121;
+}
+
+.search-country-input {
+    font-size: 1rem;
+    padding: 8px;
+    border: none;
+    width: 70%;
+    outline: none;
+}
+
+.search-country-button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    width: 20%;
+    background-color: #73b2ff;
+    text-transform: uppercase;
+}
