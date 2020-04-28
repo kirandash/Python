@@ -145,3 +145,9 @@
 8. open database ---> select: db.sqlite3 file from our project.
 9. Tables: countries_country + default django tables. Expanding each table,
 10. Expand table countries_country to see all the fields we added to our db. code, pinned. By default id is added which is the unique key for our data.
+
+### 2.6 Django Admin
+1. open countries/admin.py file. create a CountryAdmin class - and add pass as content for making CountryAdmin a valid Python class, if there is no other code.
+2. Create a superuser to work with db: `python3 manage.py createsuperuser` - username: kiran, pwd: common
+3. Run server: `python3 manage.py runserver`
+4. Server is available at: http://127.0.0.1:8000/admin/
