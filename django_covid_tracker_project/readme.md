@@ -116,3 +116,32 @@
 1. Open countries/models.py file. `from django.db import models`
 2. Create a model Country(), a class inherited from django.models. `class Country(models.Model):`
 3. Add country code and pinned Field to the model. Remaining data will be retrieved from API.
+
+### 2.5 Migrations
+**Keywords and definitions:**
+1. **Models**: Defines the structure of database tables
+2. **Migrations**: Generate scripts to change the database structure
+3. **Intitial Migration**: By default no tables exists. So When a new model is defined, the **initial migration** will create the corresponding database tables
+4. When is a migration needed? While adding a model. Or Adding a Field. Removing a Field. Or Changing a field.
+5. **Migration commands**: `python3 manage.py makemigrations`, `python3 manage.py migrate`, `python3 manage.py showmigrations`
+6. `makemigrations`:
+    - Generates migration files for later use. 
+    - Uses current model fields and current database tables
+    - Creates numbered files in appname/migrations/
+7. `migrate`:
+    - Runs all migrations that haven't been run yet. To apply all migrations.
+    - Can also run migrations for an app to a specific number using: `migrate <appname> <number>` eg `migrate countries 1`
+8. **Unapplied migrations**: When a migration file has been created, but hasn't been run.
+    - Very common source of error when working with a team. So always make sure to have a look at changing models and pull migration files.
+
+**Running migrations on our project:**
+1. Go to manage.py folder (`cd django_covid_tracker_project`, `ls`)
+2. Run command: `python3 manage.py makemigrations` (creates model for countries app - Country model. Path: countries/migrations/0001_initial.py. It is called initial.py bcoz we don't have a table yet)
+3. `python3 manage.py showmigrations` will list all the default django migrations along with countries migrations grouped. Note that the `[ ]` empty sq brackets imply that these migrations have not been applied so far.
+4. Apply all migrations by running: `python3 manage.py migrate`. (Will show all applied migrations. 
+5. Verify applied migrations by: Now running `showmigrations` command will show `[x]` for all the applied migrations)
+6. Download os db tool: https://sqlitebrowser.org/: Helps us see sqlite db and their structures and contents.
+7. Install sqlitebrowser. Launch from Applications/DB Browser for SQLite.
+8. open database ---> select: db.sqlite3 file from our project.
+9. Tables: countries_country + default django tables. Expanding each table,
+10. Expand table countries_country to see all the fields we added to our db. code, pinned. By default id is added which is the unique key for our data.
