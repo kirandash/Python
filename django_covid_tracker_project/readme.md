@@ -43,6 +43,25 @@
 7. Will Not Edit: manage.py, __init__.py, wsgi.py
 
 ### 1.5 Run Django Project
-1. `cd django_101_pets`: folder with manage.py file. Since manage.py has all commands.
+1. `cd django_covid_tracker_project`: folder with manage.py file. Since manage.py has all commands.
 2. `python3 manage.py runserver` to run the project on local server. Ignore the warning about unapplied migrations. Note that this will also create a db.sqlite3 file, a local db file that django will use for running server.
 3. Project will launch at http://127.0.0.1:8000/
+
+### 1.6 Create a Django App
+1. **Django Apps**:
+    - A component in a Django Project
+    - A folder with a set of Python files
+    - Each app fits a specific purpose
+    - Example: Blog, Forum, Wiki, In our project: countries (Single app)
+4. `cd django_covid_tracker_project`: folder with manage.py file. Since manage.py has all commands.
+5. `python3 manage.py startapp countries`: will create a django app or `django-admin startapp countries`
+6. Add the created app to project. Go to django_covid_tracker/settings.py file ---> INSTALLED_APPS ---> Add `countries` to the end of preinstalled django apps. 
+
+### 1.7 Understanding Django App Folder structure
+1. **migrations/**: holds files to help us with migrate our DB when we change our schema over time. Or move code to different environment.
+2. **__init__.py**: (Dunder Init file) - Tells Python that this folder contains Python files
+3. **admin.py**: controls admin interface that can be used to edit data related to this app.
+4. **apps.py**: controls settings specific to this app.
+5. **models.py**: provides the data layer which Django uses to create DB schema or queries.
+6. **tests.py**: Can add unit test for testing this app.
+7. **views.py**: Holds logic and control flow for handling requests and defines HTTP response that can be returned.

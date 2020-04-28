@@ -60,7 +60,7 @@
 1. **migrations/**: holds files to help us with migrate our DB when we change our schema over time. Or move code to different environment.
 2. **__init__.py**: (Dunder Init file) - Tells Python that this folder contains Python files
 3. **admin.py**: controls admin interface that can be used to edit data related to this app.
-4. **apps.py**: controls settings specific to this app.**urls.py**: For url routing specific to this app.
+4. **apps.py**: controls settings specific to this app.
 5. **models.py**: provides the data layer which Django uses to create DB schema or queries.
 6. **tests.py**: Can add unit test for testing this app.
 7. **views.py**: Holds logic and control flow for handling requests and defines HTTP response that can be returned.
